@@ -1,73 +1,6 @@
 
-function creaElementi() {
-    let body = document.querySelector('body');
-    let container1 = document.createElement('div');
-    body.append(container1);
-    let h1 = document.createElement('h1');
-    container1.append(h1);
-    let titolo = document.querySelector('h1');
-    let span = document.createElement('span');
-    titolo.append(span);
-    let container2 = document.createElement('div');
-    container1.append(container2);
-    let h2 = document.createElement('h2');
-    container2.append(h2);
-    let paragraph = document.createElement('p');
-    container2.append(paragraph);
-    let lista1 = document.createElement('ul');
-    container1.append(lista1);
-    let li1 = document.createElement('li');
-    lista1.append(li1);
-    let li2 = document.createElement('li');
-    lista1.append(li2);
-    let li3 = document.createElement('li');
-    lista1.append(li3);
-    let container3 = document.createElement('div');
-    container1.append(container3);
-    let check = document.createElement('input');
-    container3.append(check);
-    let label = document.createElement('label');
-    container3.append(label);
-    let link = document.createElement('a');
-    container3.append(link);
-}
 
-creaElementi()
-
-
-function classi() {
-    container1.id = 'container1'
-    h1.classList.add('title');
-    span.classList.add('bold');
-    container2.id = 'container2';
-    h2.id = 'subtitle';
-    paragraph.classList.add('paragraph');
-    lista1.id = 'lista1';
-    check.type = 'checkbox';
-    check.name = 'check'
-    check.id = 'check'
-    link.classList.add('link');
-
-}
-
-classi()
-
-function scrivi() {
-    h1.textContent = 'Welcome to ';
-    span.textContent = 'your exam';
-    h2.textContent = 'Instructions';
-    paragraph.textContent  = `We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.`
-    li1.textContent = 'Each question is timed and can only be answered once.';
-    li2.textContent = 'Changing browser tab or opening other windows will invalidate the question.';
-    li3.textContent = 'This exam will take approx. 0-5 minutes.';
-    label.textContent = 'I promise to answer myself without help from anyone';
-    link.textContent = 'PROCEED'; 
-
-}
-
-scrivi()
-
-/*let body = document.querySelector('body');
+let body = document.querySelector('body');
 let container1 = document.createElement('div');
 body.append(container1);
 container1.id = 'container1'
@@ -134,7 +67,7 @@ link.addEventListener('click', () => {
           alert('confirm')
       }
 
-}) */
+}) 
 
 
 
