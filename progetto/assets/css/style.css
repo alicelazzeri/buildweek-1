@@ -5,3 +5,10 @@ body {
   background-size: cover;
   margin: 0;
 }
+
+#logo {
+  width: 12%;
+  margin-left: 7em;
+  margin-top: 3em;
+  
+}
