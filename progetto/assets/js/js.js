@@ -19,6 +19,24 @@ function creaElementi() {
 
 
 
+function figli() {
+    body.append(container1);
+    container1.append(h1);
+    titolo.append(span);
+    container1.append(container2);
+    container2.append(h2);
+    container2.append(paragraph);
+    container1.append(lista1);
+    lista1.append(li1);
+    lista1.append(li2);
+    lista1.append(li3);
+    container1.append(container3);
+    container3.append(check);
+    container3.append(label);
+    
+}
+
+
 
 /*let body = document.querySelector('body');
 let container1 = document.createElement('div');
