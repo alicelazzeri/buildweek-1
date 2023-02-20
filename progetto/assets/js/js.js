@@ -1,40 +1,38 @@
+
 function creaElementi() {
     let body = document.querySelector('body');
     let container1 = document.createElement('div');
-    let h1 = document.createElement('h1');
-    let titolo = document.querySelector('.title');
-    let span = document.createElement('span');
-    let container2 = document.createElement('div');
-    let h2 = document.createElement('h2');
-    let paragraph = document.createElement('p');
-    let lista1 = document.createElement('ul');
-    let li1 = document.createElement('li');
-    let li2 = document.createElement('li');
-    let li3 = document.createElement('li');
-    let container3 = document.createElement('div');
-    let check = document.createElement('input');
-    let label = document.createElement('label');
-    let link = document.createElement('a');
-}
-
-
-
-function figli() {
     body.append(container1);
+    let h1 = document.createElement('h1');
     container1.append(h1);
+    let titolo = document.querySelector('h1');
+    let span = document.createElement('span');
     titolo.append(span);
+    let container2 = document.createElement('div');
     container1.append(container2);
+    let h2 = document.createElement('h2');
     container2.append(h2);
+    let paragraph = document.createElement('p');
     container2.append(paragraph);
+    let lista1 = document.createElement('ul');
     container1.append(lista1);
+    let li1 = document.createElement('li');
     lista1.append(li1);
+    let li2 = document.createElement('li');
     lista1.append(li2);
+    let li3 = document.createElement('li');
     lista1.append(li3);
+    let container3 = document.createElement('div');
     container1.append(container3);
+    let check = document.createElement('input');
     container3.append(check);
+    let label = document.createElement('label');
     container3.append(label);
-    
+    let link = document.createElement('a');
+    container3.append(link);
 }
+
+creaElementi()
 
 
 function classi() {
@@ -52,6 +50,7 @@ function classi() {
 
 }
 
+classi()
 
 function scrivi() {
     h1.textContent = 'Welcome to ';
@@ -66,6 +65,7 @@ function scrivi() {
 
 }
 
+scrivi()
 
 /*let body = document.querySelector('body');
 let container1 = document.createElement('div');
