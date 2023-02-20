@@ -67,12 +67,7 @@ link.addEventListener('click', () => {
 
 })
 
-container1 = document.createElement('div');
-body.append(container1);
-container1.id = 'container1';
-let h1 = document.createElement('h1');
-container1.append(h1);
-h1.classList.add('title');
+
 
 
 
