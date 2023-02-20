@@ -39,7 +39,9 @@ body {
 
 .paragraph {
   margin: 0.8rem 0 0 7rem;
+  line-height: 1.1rem;
   font-size: 16px;
+  max-width: 55%;
 }
 
 ul {
@@ -50,14 +52,8 @@ ul li {
   line-height: 1.5rem;
 }
 
-.link {
-  text-align: center;
-  width: 140px;
-  margin-right: 4rem;
-  padding: 15px 10px 15px 10px;
-  background-color: #00ffff;
-  font-weight: 700;
-  color: black;
+.b{
+  font-weight: 600;
 }
 
 #container3{
@@ -65,13 +61,27 @@ ul li {
   margin-left: 6.5rem;
 }
 
-#check{
-  margin: 0;
+.link {
+  text-align: center;
+  margin-left: 250px;  
+  padding: 15px 40px 15px 40px;
+  background-color: #00ffff;
+  font-weight: 700;
+  color: black;
 }
+
+.link:hover{
+  box-shadow: 0 0 20px #00ffffbc;
+}
+
+#check{
+  border-color: 1px solid white;
+}
+
 #check, label{
   font-size: 13px;
   font-weight: 500;
-  margin: 0;
+  margin: 0 10px 0 0;
 }
 
 .button {
