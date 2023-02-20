@@ -51,7 +51,7 @@ check.id = 'check'
 container3.append(check);
 let label = document.createElement('label');
 container3.append(label);
-label.for = 'check';
+label.setAttribute('for', 'check');
 label.textContent = 'I promise to answer myself without help from anyone';
 
 
