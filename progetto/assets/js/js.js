@@ -37,6 +37,21 @@ function figli() {
 }
 
 
+function classi() {
+    container1.id = 'container1'
+    h1.classList.add('title');
+    span.classList.add('bold');
+    container2.id = 'container2';
+    h2.id = 'subtitle';
+    paragraph.classList.add('paragraph');
+    lista1.id = 'lista1';
+    check.type = 'checkbox';
+    check.name = 'check'
+    check.id = 'check'
+    link.classList.add('link');
+
+}
+
 
 /*let body = document.querySelector('body');
 let container1 = document.createElement('div');
