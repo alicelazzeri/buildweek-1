@@ -53,6 +53,20 @@ function classi() {
 }
 
 
+function scrivi() {
+    h1.textContent = 'Welcome to ';
+    span.textContent = 'your exam';
+    h2.textContent = 'Instructions';
+    paragraph.textContent  = `We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.`
+    li1.textContent = 'Each question is timed and can only be answered once.';
+    li2.textContent = 'Changing browser tab or opening other windows will invalidate the question.';
+    li3.textContent = 'This exam will take approx. 0-5 minutes.';
+    label.textContent = 'I promise to answer myself without help from anyone';
+    link.textContent = 'PROCEED'; 
+
+}
+
+
 /*let body = document.querySelector('body');
 let container1 = document.createElement('div');
 body.append(container1);
