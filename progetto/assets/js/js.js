@@ -57,4 +57,6 @@ let link = document.createElement('a');
 container3.append(link);
 link.classList.add('link');
 link.textContent = 'PROCEED';
-link.href = '#';
+link.addEventListener('click', () => {
+    container1.innerHTML = '';
+})
