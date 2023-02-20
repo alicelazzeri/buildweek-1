@@ -12,7 +12,7 @@ span.classList.add('bold');
 titolo.append(span);
 span.textContent = 'your exam';
 
-let container2 = document.createElement('div')
+let container2 = document.createElement('div');
 container1.append(container2);
 container2.id = 'container2';
 let h2 = document.createElement('h2');
@@ -22,8 +22,8 @@ h2.textContent = 'Instructions';
 let paragraph = document.createElement('p');
 container2.append(paragraph);
 paragraph.classList.add('paragraph');
-paragraph.textContent = `We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.`
-
+paragraph.textContent  = `We don't expect most engineers to know the answers to 
+all of these questions, so don't worry if you're unsure of a few of them.`
 
 let lista1 = document.createElement('ul');
 container1.append(lista1);
