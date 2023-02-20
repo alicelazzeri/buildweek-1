@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montserrat+Alternates:wght@400;500&family=Outfit:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montserrat+Alternates:wght@400;500&family=Outfit:wght@400;600&display=swap");
 
 body {
   background-image: url(../img/bg.jpg);
@@ -6,32 +6,73 @@ body {
   background-position: center;
   background-size: cover;
   margin: 0;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
 }
 
 #logo {
   width: 12%;
-  margin-left: 7em;
-  margin-top: 3em;
+  margin-left: 7rem;
+  margin-top: 3rem;
 }
 
 .title {
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
+  font-size: 60px;
+  margin: 4rem 0 0 7rem;
+}
+
+#subtitle {
+  font-family: "Outfit", sans-serif;
+  color: #d20094;
+  font-weight: 600;
+  font-size: 25px;
+  margin: 1.7rem 0 0 7rem;
 }
 
 .paragraph {
+  margin: 0.8rem 0 0 7rem;
+  font-size: 16px;
+}
 
-  font-family: 'Inter', sans-serif;
+ul {
+  margin: 2.3rem 0 0 8.3rem;
+}
 
+ul li {
+  line-height: 1.5rem;
 }
 
 .link {
-  
+  text-align: center;
+  border: 2px solid white;
+  width: 150px;
+  margin-right: 4rem;
+  padding: 10px;
+}
+
+.procedi {
+  text-decoration: none;
+  color: white;
+}
+
+.link:hover{
+  background-color: aqua;
+  color: black;
+} 
+
+#flex-container{
+  margin: 5rem 0 0 6rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .button {
-  
 }
 
 #check {
-
+  font-size: 13px;
+  font-weight: 500;
 }
