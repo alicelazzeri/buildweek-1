@@ -22,6 +22,10 @@ body {
   margin: 4rem 0 0 7rem;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 #subtitle {
   font-family: "Outfit", sans-serif;
   color: #d20094;
