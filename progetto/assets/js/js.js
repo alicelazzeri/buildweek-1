@@ -12,7 +12,7 @@ span.classList.add('bold');
 titolo.append(span);
 span.textContent = 'your exam';
 
-let container2 = document.createElement('div')
+let container2 = document.createElement('div');
 container1.append(container2);
 container2.id = 'container2';
 let h2 = document.createElement('h2');
@@ -22,8 +22,8 @@ h2.textContent = 'Instructions';
 let paragraph = document.createElement('p');
 container2.append(paragraph);
 paragraph.classList.add('paragraph');
-paragraph.textContent = `We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.`
-
+paragraph.textContent  = `We don't expect most engineers to know the answers to 
+all of these questions, so don't worry if you're unsure of a few of them.`
 
 let lista1 = document.createElement('ul');
 container1.append(lista1);
@@ -56,13 +56,32 @@ label.textContent = 'I promise to answer myself without help from anyone';
 let link = document.createElement('a');
 container3.append(link);
 link.classList.add('link');
-link.textContent = 'PROCEED';
+link.textContent = 'PROCEED'; 
 link.addEventListener('click', () => {
-    
-    if(check.checked){
-        container1.innerHTML = '';}
-        else{
-            alert('confirm')
-        }
+
+  if(check.checked){
+      container1.innerHTML = '';}
+      else{
+          alert('confirm')
+      }
+
+})
+
+container1 = document.createElement('div');
+body.append(container1);
+container1.id = 'container1';
+let h1 = document.createElement('h1');
+container1.append(h1);
+h1.classList.add('title');
+
+
+
+
+
+
+
+
+
+
 
 })
