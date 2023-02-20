@@ -56,13 +56,32 @@ label.textContent = 'I promise to answer myself without help from anyone';
 let link = document.createElement('a');
 container3.append(link);
 link.classList.add('link');
-link.textContent = 'PROCEED';
+link.textContent = 'PROCEED'; 
 link.addEventListener('click', () => {
-    
-    if(check.checked){
-        container1.innerHTML = '';}
-        else{
-            alert('confirm')
-        }
+
+  if(check.checked){
+      container1.innerHTML = '';}
+      else{
+          alert('confirm')
+      }
+
+})
+
+container1 = document.createElement('div');
+body.append(container1);
+container1.id = 'container1';
+let h1 = document.createElement('h1');
+container1.append(h1);
+h1.classList.add('title');
+
+
+
+
+
+
+
+
+
+
 
 })
