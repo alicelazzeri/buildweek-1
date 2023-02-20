@@ -57,6 +57,10 @@ let link = document.createElement('a');
 container3.append(link);
 link.classList.add('link');
 link.textContent = 'PROCEED';
+console.dir(check)
 link.addEventListener('click', () => {
-    container1.innerHTML = '';
+    
+    if(check.checked){
+        container1.innerHTML = '';}
+
 })
