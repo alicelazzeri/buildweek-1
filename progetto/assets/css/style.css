@@ -11,9 +11,9 @@ body {
 }
 
 #logo {
-  width: 12%;
+  width: 18%;
   margin-left: 7rem;
-  margin-top: 3rem;
+  margin-top: 2.5rem;
 }
 
 .title {
@@ -23,6 +23,9 @@ body {
 }
 
 .bold{
+  line-height: 2.2rem;
+  display: flex;
+  flex-direction: column;
   font-weight: bold;
 }
 
@@ -30,8 +33,8 @@ body {
   font-family: "Outfit", sans-serif;
   color: #d20094;
   font-weight: 600;
-  font-size: 25px;
-  margin: 1.7rem 0 0 7rem;
+  font-size: 23px;
+  margin: 2.3rem 0 0 7rem;
 }
 
 .paragraph {
@@ -49,33 +52,27 @@ ul li {
 
 .link {
   text-align: center;
-  border: 2px solid white;
-  width: 150px;
+  width: 140px;
   margin-right: 4rem;
-  padding: 10px;
-}
-
-.procedi {
-  text-decoration: none;
-  color: white;
-}
-
-.link:hover{
+  padding: 15px 10px 15px 10px;
   background-color: #00ffff;
+  font-weight: 700;
   color: black;
-} 
+}
 
-#flex-container{
-  margin: 5rem 0 0 6rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+#container3{
+  margin-top: 5rem;
+  margin-left: 6.5rem;
+}
+
+#check{
+  margin: 0;
+}
+#check, label{
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
 }
 
 .button {
-}
-
-#check {
-  font-size: 13px;
-  font-weight: 500;
 }
