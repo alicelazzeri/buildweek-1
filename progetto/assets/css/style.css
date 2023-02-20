@@ -18,17 +18,7 @@ body {
 }
 
 .title {
-  font-family: "Outfit", sans-serif;
-  font-size: 60px;
-  margin: 4rem 0 0 7rem;
-}
-
-#subtitle {
-  font-family: "Outfit", sans-serif;
-  color: #d20094;
-  font-weight: 600;
-  font-size: 25px;
-  margin: 1.7rem 0 0 7rem;
+  font-family: 'Outfit', sans-serif;
 }
 
 .paragraph {
@@ -36,9 +26,7 @@ body {
   font-size: 16px;
 }
 
-ul {
-  margin: 2.3rem 0 0 8.3rem;
-}
+  font-family: 'Inter', sans-serif;
 
 ul li {
   line-height: 1.5rem;
