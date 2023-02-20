@@ -32,13 +32,13 @@ container1.append(lista1);
 lista1.id = 'lista1';
 let li1 = document.createElement('li');
 lista1.append(li1);
-li1.textContent = 'Each question is timed and can only be answered once.';
+li1.innerHTML = 'Each question is <span class="b">timed</span> and can only be <span class="b">answered once</span>.';
 let li2 = document.createElement('li');
 lista1.append(li2);
-li2.textContent = 'Changing browser tab or opening other windows will invalidate the question.';
+li2.innerHTML = 'Changing browser tab or opening other windows will <span class="b">invalidate the question</span>.';
 let li3 = document.createElement('li');
 lista1.append(li3);
-li3.textContent = 'This exam will take approx. 0-5 minutes.';
+li3.innerHTML = 'This exam will take approx. <span class="b">0-5 minutes</span>.';
 
 
 let container3 = document.createElement('div');
