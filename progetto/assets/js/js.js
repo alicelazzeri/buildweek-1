@@ -1,4 +1,26 @@
-let body = document.querySelector('body');
+function creaElementi() {
+    let body = document.querySelector('body');
+    let container1 = document.createElement('div');
+    let h1 = document.createElement('h1');
+    let titolo = document.querySelector('.title');
+    let span = document.createElement('span');
+    let container2 = document.createElement('div');
+    let h2 = document.createElement('h2');
+    let paragraph = document.createElement('p');
+    let lista1 = document.createElement('ul');
+    let li1 = document.createElement('li');
+    let li2 = document.createElement('li');
+    let li3 = document.createElement('li');
+    let container3 = document.createElement('div');
+    let check = document.createElement('input');
+    let label = document.createElement('label');
+    let link = document.createElement('a');
+}
+
+
+
+
+/*let body = document.querySelector('body');
 let container1 = document.createElement('div');
 body.append(container1);
 container1.id = 'container1'
@@ -65,7 +87,9 @@ link.addEventListener('click', () => {
           alert('confirm')
       }
 
-})
+}) */
+
+
 
 
 
