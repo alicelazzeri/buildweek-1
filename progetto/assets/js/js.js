@@ -151,8 +151,8 @@ function creaElementoId(elemento, padre, id, testo) {
     function quiz (questions) {
 
         let domanda = creaElementoClasse('div','#container1','title','');
-        domanda.innerHTML = 
-    }
+        
+    };
 
     let link = document.querySelector('.link')
     link.addEventListener('click', () => {
