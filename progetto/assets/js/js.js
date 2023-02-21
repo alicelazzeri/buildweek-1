@@ -98,6 +98,7 @@
   },
 ];
 
+//pagina1
 
 let body = document.querySelector('body');
 
@@ -167,7 +168,14 @@ function creaElementoId(elemento, padre, id, testo) {
     
 
 */
-const FULL_DASH_ARRAY = 283;
+
+
+
+
+
+
+//Timer
+/*const FULL_DASH_ARRAY = 283;
 
 
 const COLOR_CODES = {
@@ -251,4 +259,4 @@ function setCircleDasharray() {
   document
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
-}
+} */
