@@ -222,3 +222,52 @@ body {
   color: #d20094;
 }
 
+.stars {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stars span {
+  color: white;
+  font-size: 40px;
+  margin: 0 2px;
+}
+/*#0b113b*/
+
+.stars span:active{
+  color: #00ffff; 
+   cursor: pointer;
+}
+
+.container4 {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+}
+
+.container4 input {
+  margin-top: 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #d20094;
+  width: 600px;
+  padding-left: 1rem;
+  padding-bottom: 0.3rem;
+  cursor: pointer;
+  color: white;
+  
+}
+
+.container4 input:focus {
+  outline: none;
+}
+.footer2 {
+  display: flex;
+  justify-content: center;
+}
+.footer2 .link {
+  text-align: center;
+  margin: 0;
+}
+
