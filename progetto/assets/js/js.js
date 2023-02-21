@@ -129,9 +129,9 @@ function creaElementoId(elemento, padre, id, testo) {
     creaElementoId('div','body','container1','');
     creaElementoClasse('div','#container1','title','Welcome to ');
     creaElementoClasse('span','.title','bold','your exam');
-    creaElementoId('div','#container1','container2','');
-    creaElementoId('div','#container2','subtitle','Instructions');
-    creaElementoClasse('div','#container2','paragraph',`We don't expect most engineers to know the answers to 
+    creaElementoId('div','#container1','container5','');
+    creaElementoId('div','#container5','subtitle','Instructions');
+    creaElementoClasse('div','#container5','paragraph',`We don't expect most engineers to know the answers to 
     all of these questions, so don't worry if you're unsure of a few of them.`);
     creaElementoId('ul','#container1','lista1','');
     creaElemento('li','#lista1','Each question is <span class="b">timed</span> and can only be <span class="b">answered once</span>.');
