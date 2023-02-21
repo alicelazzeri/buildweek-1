@@ -44,11 +44,11 @@ body {
   max-width: 550px;
 }
 
-ul {
+#lista1 {
   margin: 2.3rem 0 0 8.3rem;
 }
 
-ul li {
+#lista1 li {
   line-height: 1.5rem;
 }
 
