@@ -52,6 +52,51 @@ body {
   max-width: 550px;
 }
 
+.paragraph2{
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 16px;
+}
+
+.correct,.wrong{
+  font-family: "Outfit", sans-serif;
+  font-size: 60px;
+}
+
+.wrong{
+  text-align: right;
+}
+
+.paragraph3{
+  line-height: 1.5rem;
+  font-size: 16px;
+}
+
+.flex-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 7rem;
+}
+
+.link2{
+  border: 2px solid white;
+  color: white;
+  text-align: center;
+  padding: 15px 40px 15px 40px;
+  font-weight: 600;
+  
+}
+
+.link2:hover{
+  box-shadow: 0 0 20px #00ffffbc;
+  cursor: pointer;
+}
+
+.link2:active{
+  background-color: #00ffff;
+  color: black;
+}
+
 #lista1 {
   margin: 2.3rem 0 0 8.3rem;
 }
