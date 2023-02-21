@@ -109,8 +109,6 @@ function creaElementoId(elemento, padre, id, testo) {
     nuovoElemento.innerHTML = testo;
     document.querySelector(padre).append(nuovoElemento);
   }
-
-  
   
   function creaElementoClasse(elemento,padre,classe,testo) {
       let nuovoElemento = document.createElement(elemento);
@@ -147,12 +145,11 @@ function creaElementoId(elemento, padre, id, testo) {
     creaElementoClasse('a','#container3','link','PROCEED');
 
 
+    /* function quiz (questions) {
 
-    function quiz (questions) {
-
-        let domanda = creaElementoClasse('div','#container1','title','');
-        domanda.innerHTML = 
-    }
+      let domanda = creaElementoClasse('div','#container1','title','');
+      domanda.innerHTML = */
+    
 
     let link = document.querySelector('.link')
     link.addEventListener('click', () => {
@@ -163,14 +160,8 @@ function creaElementoId(elemento, padre, id, testo) {
                 alert('confirm')
             }
       
-      }) 
+      })
     
-    
-
-
-
-
-
 
 
 
@@ -245,7 +236,6 @@ function formatTime(time) {
 
 return `${seconds}`;
 }
-
 
 function calculateTimeFraction() {
   const rawTimeFraction = timeLeft / TIME_LIMIT;
