@@ -1,4 +1,4 @@
-/*const questions = [
+const questions = [
   {
     category: "Science: Computers",
     type: "multiple",
@@ -167,7 +167,7 @@ function creaElementoId(elemento, padre, id, testo) {
     
     
 
-*/
+
 
 
 
