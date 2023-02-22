@@ -45,17 +45,12 @@ export function newAnswer(answerObj){
                 
                 
                 //inserisco contenuto
-                titleDOM.textContent = answerObj[0].question
+                titleDOM.textContent = answerObj.question
                 console.log(titleDOM);
-                let risposte = [];
 
-                for(let val of answerObj[0].incorrect_answers){
-                    risposte.push(val)
-                }
-                risposte.push(answerObj[0].correct_answer)
                 
-                console.log(risposte);
-                for(let risp of risposte){
+                
+                for(let risp of answerObj.incorrect_answers){
 
                     let optionClone = html.querySelector('#container2 .button').cloneNode()
                     optionClone.textContent = risp;
@@ -63,12 +58,17 @@ export function newAnswer(answerObj){
                     answersDOM.append(optionClone);
 
                 }
-                
 
-                html.querySelector('#container2 .button').remove()
+                html.querySelector('#container2 .button').remove()//rimuovo la prima option
+
                 target.append(html)
 
         })
 
     }
 
+    
+
+                
+                
+            
