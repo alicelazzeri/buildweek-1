@@ -114,6 +114,14 @@ export function creaElemento(elemento, padre, testo) {
   document.querySelector(padre).append(nuovoElemento);
 }
 
+export function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
 let currentQuestionIndex = 0;
 export function newAnswer(answerObj) {
   fetch("template.html")
@@ -214,10 +222,13 @@ export function newAnswer(answerObj) {
 
       currentQuestionIndex++;
 
-  footerDOM.innerHTML = `${currentQuestionIndex} <span class="color">/10</span>`;
+      footerDOM.innerHTML = `${currentQuestionIndex} <span class="color">/10</span>`;
 
-  let footerSpan = html.querySelector('.color');
-                footerSpan.textContent = '/' + questions.length;
+      let footerSpan = html.querySelector(".color");
+      footerSpan.textContent = "/" + questions.length;
+      
+
+
       //inserisco contenuto
       titleDOM.textContent = answerObj.question;
 

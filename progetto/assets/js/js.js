@@ -4,7 +4,7 @@
 
 let body = document.querySelector('body');
 
-import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions} from "./Funzioni.js"
+import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions, shuffle} from "./Funzioni.js"
 
 
 
@@ -35,6 +35,7 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions} 
 
         if(check.checked){
             container1.innerHTML='';
+                shuffle(questions)
                 newAnswer(questions[indice]);
                 creaElementoClasse('div','#container1','container4','');
                 creaElementoClasse('button','.container4','next','NEXT');
