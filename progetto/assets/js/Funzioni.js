@@ -216,6 +216,8 @@ export function newAnswer(answerObj) {
 
   footerDOM.innerHTML = `${currentQuestionIndex} <span class="color">/10</span>`;
 
+  let footerSpan = html.querySelector('.color');
+                footerSpan.textContent = '/' + questions.length;
       //inserisco contenuto
       titleDOM.textContent = answerObj.question;
 
