@@ -144,7 +144,7 @@ function creaElementoId(elemento, padre, id, testo) {
     label.setAttribute('for', 'check');
     creaElementoClasse('a','#container3','link','PROCEED');
 
-
+//pagina 2
      function quiz () {
         let score = 0;
         let domanda = creaElementoClasse('div','#container1','title2','ciao');
