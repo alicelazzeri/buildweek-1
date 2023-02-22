@@ -35,7 +35,14 @@ export function newAnswer(answerObj){
                 
                 
                
-    
+                let next = document.getElementsByClassName('.button');
+                console.log(next);
+              for(let bottone of next){
+                bottone.addEventListener('click',function(){
+        
+                    newAnswer(questions[indice]);
+                    indice++;
+              })}
             
                 
     
@@ -48,7 +55,7 @@ export function newAnswer(answerObj){
                 titleDOM.textContent = answerObj.question
                 console.log(titleDOM);
 
-                
+
                 
                 for(let risp of answerObj.incorrect_answers){
 

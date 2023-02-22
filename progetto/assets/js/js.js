@@ -143,15 +143,15 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer} from "./Fun
     
       let indice = 0;
 
-        let next = document.querySelectorAll('.button');
+        let next = document.getElementsByClassName('.button');
+        console.log(next);
       for(let bottone of next){
         bottone.addEventListener('click',function(){
 
-            newAnswer(domande[indice]);
+            newAnswer(questions[indice]);
             indice++;
       })}
 
-       
 
 
 //Timer
