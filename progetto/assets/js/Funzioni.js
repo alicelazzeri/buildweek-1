@@ -130,9 +130,15 @@ function setCircleDasharray() {
                 //inserisco contenuto
                 titleDOM.textContent = answerObj.question
                 
+                let risposte = []
 
+                risposte.push(answerObj.correct_answer)
+
+                for(let val of answerObj.incorrect_answers){
+                    risposte.push(val)
+                }
                 
-                for(let risp of answerObj.incorrect_answers){
+                for(let risp of risposte){
 
                     let optionClone = html.querySelector('#container2 .button').cloneNode()
                     optionClone.textContent = risp;
