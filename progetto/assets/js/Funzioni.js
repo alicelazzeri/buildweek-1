@@ -250,15 +250,15 @@ function setCircleDasharray() {
                     answersDOM.append(optionClone);
                     
 
+                    let indice = 0;
+                    let next = document.querySelectorAll('.button')
+                        console.log(next);
+                        for (let i = 0; i < next.length; i++) {
+                            next[i].addEventListener('click', function() {
+                            newAnswer(answerObj[indice]);
+                            indice++;
+                            })};
                 }
-                let indice = 0;
-                let next = document.querySelectorAll('.button')
-                    console.log(next);
-                    for (let i = 0; i < next.length; i++) {
-                        next[i].addEventListener('click', function() {
-                        newAnswer(answerObj[indice]);
-                        indice++;
-                        })};
                 html.querySelector('#container2 .button').remove()//rimuovo la prima option
 
                 target.append(html)
