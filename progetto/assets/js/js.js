@@ -41,10 +41,17 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions} 
                 let next = document.querySelector('.next')
                 
                 
-              next.addEventListener('click', function() {
-                    newAnswer(questions[indice]);
-                    indice++;
-                  })
+                next.addEventListener('click', function() {
+                    if (indice === lastQuestionIndex) {
+                      next.textContent = 'RESULTS';
+                      document.querySelector('#container1').innerHTML = '';
+                      document.querySelector('#target').innerHTML = '';
+                    document.querySelector('.next').remove();
+                    } else {
+                      newAnswer(questions[indice]);
+                      indice++;
+                    }
+                  });
                 
             }
             else{
@@ -54,8 +61,8 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions} 
       })
     
       let indice = 0;
-
-
+      let lastQuestionIndex = questions.length - 1;
+      
 
         
 //Timer
