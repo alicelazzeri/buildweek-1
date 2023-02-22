@@ -117,6 +117,7 @@ export  function creaElementoId(elemento, padre, id, testo) {
         nuovoElemento.innerHTML = testo;
         document.querySelector(padre).append(nuovoElemento);
       }
+      
 
 export function newAnswer(answerObj){    
 
@@ -219,12 +220,14 @@ function setCircleDasharray() {
 } 
                
 
-            
+
                 
     
                 //seleziono gli elementi
                 let titleDOM = html.querySelector('.title2')
                 let answersDOM = html.querySelector('#container2')
+                
+                        
                 let footerDOM = html.querySelector('#footer')
                 
             
@@ -250,15 +253,8 @@ function setCircleDasharray() {
                     answersDOM.append(optionClone);
                     
 
-                    let indice = 0;
-                    let next = document.querySelectorAll('.button')
-                        console.log(next);
-                        for (let i = 0; i < next.length; i++) {
-                            next[i].addEventListener('click', function() {
-                            newAnswer(answerObj[indice]);
-                            indice++;
-                            })};
                 }
+                    
                 html.querySelector('#container2 .button').remove()//rimuovo la prima option
 
                 target.append(html)
@@ -269,6 +265,5 @@ function setCircleDasharray() {
 
     
 
-                
-                
+    
             

@@ -36,6 +36,14 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions} 
         if(check.checked){
             container1.innerHTML='';
                 newAnswer(questions[indice]);
+                creaElementoClasse('button','#container1','next','NEXT');
+                let next = document.querySelector('.next')
+                
+                
+              next.addEventListener('click', function() {
+                    newAnswer(questions[indice]);
+                    indice++;
+                  })
                 
             }
             else{
@@ -46,15 +54,8 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions} 
     
       let indice = 0;
 
-      let next = document.querySelectorAll('.button')
-      console.log(next);
-      for (let i = 0; i < next.length; i++) {
-        next[i].addEventListener('click', function() {
-          newAnswer(questions[indice]);
-          indice++;
-        })};
 
 
-
+        
 //Timer
 
