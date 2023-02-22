@@ -226,6 +226,8 @@ export function newAnswer(answerObj) {
 
       let footerSpan = html.querySelector(".color");
       footerSpan.textContent = "/" + questions.length;
+
+      
       
 
 
@@ -242,6 +244,7 @@ export function newAnswer(answerObj) {
 
       for (let risp of risposte) {
         let optionClone = html.querySelector("#container2 .button").cloneNode();
+        
         optionClone.textContent = risp;
 
         answersDOM.append(optionClone);

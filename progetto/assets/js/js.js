@@ -42,6 +42,7 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions, 
                 let next = document.querySelector('.next')
                 
                 
+                
                 next.addEventListener('click', function() {
                     if (indice === lastQuestionIndex) {
                       next.textContent = 'RESULTS';
