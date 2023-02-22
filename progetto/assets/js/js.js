@@ -36,7 +36,8 @@ import {creaElementoId, creaElementoClasse, creaElemento, newAnswer, questions} 
         if(check.checked){
             container1.innerHTML='';
                 newAnswer(questions[indice]);
-                creaElementoClasse('button','#container1','next','NEXT');
+                creaElementoClasse('div','#container1','container4','');
+                creaElementoClasse('button','.container4','next','NEXT');
                 let next = document.querySelector('.next')
                 
                 
