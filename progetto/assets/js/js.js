@@ -102,28 +102,10 @@ const questions = [
 
 let body = document.querySelector('body');
 
+import {creaElementoId, creaElementoClasse, creaElemento} from "./Funzioni.js"
 
-function creaElementoId(elemento, padre, id, testo) {
-    let nuovoElemento = document.createElement(elemento);
-    nuovoElemento.setAttribute("id", id);
-    nuovoElemento.innerHTML = testo;
-    document.querySelector(padre).append(nuovoElemento);
-  }
-  
-  function creaElementoClasse(elemento,padre,classe,testo) {
-      let nuovoElemento = document.createElement(elemento);
-      nuovoElemento.setAttribute("class", classe);
-      nuovoElemento.innerHTML = testo;
-      document.querySelector(padre).append(nuovoElemento);
-    }
 
-    function creaElemento(elemento,padre,testo) {
-        let nuovoElemento = document.createElement(elemento);
-        nuovoElemento.innerHTML = testo;
-        document.querySelector(padre).append(nuovoElemento);
-      }
 
-    
     creaElementoId('div','body','container1','');
     creaElementoClasse('div','#container1','title','Welcome to ');
     creaElementoClasse('span','.title','bold','your exam');
