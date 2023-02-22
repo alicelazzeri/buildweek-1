@@ -145,17 +145,17 @@ function creaElementoId(elemento, padre, id, testo) {
     creaElementoClasse('a','#container3','link','PROCEED');
 
 
-    /* function quiz () {
+     function quiz () {
         let score = 0;
         let domanda = creaElementoClasse('div','#container1','title2','ciao');
-        domanda.innerHTML = 
-    }
-let cont2 = creaElementoId('div','#container1','container2','');
+        let cont2 = creaElementoId('div','#container1','container2','');
         let risposta = creaElementoClasse('button','#container2','button','1');
         let risposta2 = creaElementoClasse('button','#container2','button','2');
         let risposta3 = creaElementoClasse('button','#container2','button','3');
         let risposta4 = creaElementoClasse('button','#container2','button','4');
         let footer =creaElementoId('div','#container1','#footer','1/10');
+    }
+
     let link = document.querySelector('.link')
     link.addEventListener('click', () => {
 
