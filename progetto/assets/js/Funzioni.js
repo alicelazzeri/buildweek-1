@@ -125,8 +125,12 @@ function setCircleDasharray() {
                 //seleziono gli elementi
                 let titleDOM = html.querySelector('.title2')
                 let answersDOM = html.querySelector('#container2')
-                let spanDOM = html.querySelector('.color')
+                let footerDOM = html.querySelector('#footer')
                 
+            
+                footerDOM.innerHTML = `1 <span class="color">/10</span>`
+                
+
                 //inserisco contenuto
                 titleDOM.textContent = answerObj.question
                 
