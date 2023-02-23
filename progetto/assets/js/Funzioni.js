@@ -222,7 +222,7 @@ export function newAnswer(answerObj) {
 
       currentQuestionIndex++;
 
-      footerDOM.innerHTML = `${currentQuestionIndex} <span class="color">/10</span>`;
+      footerDOM.innerHTML = `${currentQuestionIndex} <span class="color"></span>`;
 
       let footerSpan = html.querySelector(".color");
       footerSpan.textContent = "/" + questions.length;
@@ -254,7 +254,7 @@ export function newAnswer(answerObj) {
         answersDOM.append(optionClone);
       }
 
-      html.querySelector("#container2 .button").remove(); //rimuovo la prima option
+      bottone.remove(); //rimuovo la prima option
 
       target.append(html);
     });
