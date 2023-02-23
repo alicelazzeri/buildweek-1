@@ -186,7 +186,7 @@ export function newAnswer(answerObj) {
 
       function formatTime(time) {
         const seconds = time % 60;
-        return `${seconds < 10 ? "0" : ""}${seconds}`;
+        return seconds
       }
 
       function calculateTimeFraction() {
