@@ -122,9 +122,55 @@ export function shuffle(array) {
   return array;
 }
 
+export let indice = 0;
 let risposteCorrette = [];
 let risposteSbagliate = [];
 let currentQuestionIndex = 0;
+const TIME_LIMIT = 10;
+let timeLeft = TIME_LIMIT;
+let timerInterval;
+export function startTimer(answerObj) {
+  if(timerInterval){
+    clearInterval(timerInterval);
+    timeLeft = TIME_LIMIT;
+    console.log(timeLeft);
+  }
+  timerInterval = setInterval(() => {
+     document.getElementById("base-timer-label").innerHTML =
+       formatTime(timeLeft);
+     setCircleDasharray();
+
+     if (timeLeft === 0) {
+       clearInterval(timerInterval);
+       newAnswer(answerObj)
+       startTimer(answerObj);
+       timeLeft = TIME_LIMIT; 
+       console.log(timeLeft);
+     }
+     timeLeft--;
+   }, 1000);
+ }
+
+ function formatTime(time) {
+   const seconds = time % 60;
+   return seconds;
+ }
+
+ function calculateTimeFraction() {
+   const rawTimeFraction = timeLeft / TIME_LIMIT;
+   return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+ }
+
+ function setCircleDasharray() {
+   const FULL_DASH_ARRAY = 283;
+   const circleDasharray = `${(
+     calculateTimeFraction() * FULL_DASH_ARRAY
+   ).toFixed(0)} 283`;
+   document
+     .getElementById("base-timer-path-remaining")
+     .setAttribute("stroke-dasharray", circleDasharray);
+ }
+
 export function newAnswer(answerObj) {
   fetch("template.html")
     .then((res) => res.text())
@@ -135,11 +181,6 @@ export function newAnswer(answerObj) {
       let html = target.querySelector("#container1");
 
       //timer
-
-      const TIME_LIMIT = 10;
-      let timePassed = 0;
-      let timeLeft = TIME_LIMIT;
-      let timerInterval = null;
 
       document.getElementById("timer").innerHTML = `
 <div class="base-timer">
@@ -163,47 +204,6 @@ export function newAnswer(answerObj) {
   )}</span>
 </div>
 `;
-
-      startTimer();
-
-      function onTimesUp() {
-        clearInterval(timerInterval);
-      }
-
-      function startTimer() {
-        timerInterval = setInterval(() => {
-          timePassed++;
-          timeLeft = TIME_LIMIT - timePassed;
-          document.getElementById("base-timer-label").innerHTML =
-            formatTime(timeLeft);
-          setCircleDasharray();
-
-          if (timeLeft === 0) {
-            onTimesUp();
-          }
-        }, 1000);
-      }
-
-      function formatTime(time) {
-        const seconds = time % 60;
-        return seconds;
-      }
-
-      function calculateTimeFraction() {
-        const rawTimeFraction = timeLeft / TIME_LIMIT;
-        return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
-      }
-
-      function setCircleDasharray() {
-        const FULL_DASH_ARRAY = 283;
-        const circleDasharray = `${(
-          calculateTimeFraction() * FULL_DASH_ARRAY
-        ).toFixed(0)} 283`;
-        document
-          .getElementById("base-timer-path-remaining")
-          .setAttribute("stroke-dasharray", circleDasharray);
-      }
-
       //seleziono gli elementi
       let titleDOM = html.querySelector(".title2");
       let answersDOM = html.querySelector("#container2");
@@ -234,7 +234,8 @@ export function newAnswer(answerObj) {
         }
       });
 
-      //inserisco contenuto
+      //inserisco contenuto    
+
       titleDOM.textContent = answerObj.question;
 
       let risposte = [];
@@ -258,6 +259,7 @@ export function newAnswer(answerObj) {
 
       target.append(html);
     });
+    indice++;
   //verifico che abbia salvato le risposte
   return data.datasets[0].data[0] = risposteCorrette.length,
          data.datasets[0].data[1] = risposteSbagliate.length
@@ -305,9 +307,6 @@ export function results(risposteCorrette, risposteSbagliate) {
       correctDOM.textContent = "Correct";
       wrongDOM.textContent = "Wrong";
       totqDOM.textContent = "/" + questions.length;
-      
-      
-     
 
       const ctx = chartDOM.getContext("2d");
       const myChart = new Chart(ctx, {
