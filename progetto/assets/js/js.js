@@ -66,7 +66,6 @@ link.addEventListener("click", () => {
 
     next.addEventListener("click", function () {
       if (indice === lastQuestionIndex) {
-        next.textContent = "RESULTS";
         document.querySelector("#container1").innerHTML = "";
         document.querySelector("#target").innerHTML = "";
         document.querySelector(".next").remove();
@@ -82,5 +81,6 @@ link.addEventListener("click", () => {
 
 let indice = 0;
 let lastQuestionIndex = questions.length - 1;
-
+let risposteCorrette = [];
+let risposteSbagliate = [];
 //Timer

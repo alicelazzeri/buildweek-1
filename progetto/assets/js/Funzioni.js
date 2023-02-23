@@ -122,6 +122,8 @@ export function shuffle(array) {
   return array;
 }
 
+let risposteCorrette = [];
+let risposteSbagliate = [];
 let currentQuestionIndex = 0;
 export function newAnswer(answerObj) {
   fetch("template.html")
@@ -227,29 +229,37 @@ export function newAnswer(answerObj) {
       let footerSpan = html.querySelector(".color");
       footerSpan.textContent = "/" + questions.length;
 
+      //evento click sui bottoni
       let bottone = html.querySelector("#container2 .button");
       let container = html.querySelector("#container2");
+      
+
       container.addEventListener("click", (event) => {
-        if (event.target.classList.contains('button')) {
+        if (event.target.classList.contains("button")) {
           event.target.classList.toggle("clicked");
+
+          // Verifichiamo se la risposta data dall'utente è corretta
+          if (event.target.textContent === answerObj.correct_answer) {
+            risposteCorrette.push(event.target.textContent);
+          } else {
+            risposteSbagliate.push(event.target.textContent);
+          }
         }
       });
-      
+
       //inserisco contenuto
       titleDOM.textContent = answerObj.question;
 
       let risposte = [];
-
 
       risposte.push(answerObj.correct_answer);
 
       for (let val of answerObj.incorrect_answers) {
         risposte.push(val);
       }
-      let risposteMix = shuffle(risposte)
-      
+      let risposteMix = shuffle(risposte);
+
       for (let risp of risposteMix) {
-        
         let optionClone = bottone.cloneNode();
 
         optionClone.textContent = risp;
@@ -260,5 +270,9 @@ export function newAnswer(answerObj) {
       bottone.remove(); //rimuovo la prima option
 
       target.append(html);
+      
     });
+            //verifico che abbia salvato le risposte
+            console.log('Risposte corrette:', risposteCorrette);
+            console.log('Risposte sbagliate:', risposteSbagliate);
 }
