@@ -259,7 +259,8 @@ export function newAnswer(answerObj) {
       target.append(html);
     });
   //verifico che abbia salvato le risposte
-  return risposteCorrette, risposteSbagliate
+  return data.datasets[0].data[0] = risposteCorrette.length,
+         data.datasets[0].data[1] = risposteSbagliate.length
  
 }
 
@@ -270,7 +271,7 @@ const data = {
     ],
     datasets: [{
       label: 'Answers',
-      data: [7, 3],
+      data: [0, 0],
       backgroundColor: [
         '#00ffff',
         '#d20094'
