@@ -134,19 +134,12 @@ export function newAnswer(answerObj) {
 
       let html = target.querySelector("#container1");
 
-      const FULL_DASH_ARRAY = 283;
+      //timer
 
-      const COLOR_CODES = {
-        info: {
-          color: "#00ffff",
-        },
-      };
-
-      const TIME_LIMIT = 60;
+      const TIME_LIMIT = 10;
       let timePassed = 0;
       let timeLeft = TIME_LIMIT;
       let timerInterval = null;
-      let remainingPathColor = COLOR_CODES.info.color;
 
       document.getElementById("timer").innerHTML = `
 <div class="base-timer">
@@ -156,13 +149,12 @@ export function newAnswer(answerObj) {
       <path
         id="base-timer-path-remaining"
         stroke-dasharray="283"
-        class="base-timer__path-remaining ${remainingPathColor}"
+        class="base-timer__path-remaining"
         d="
-          M 50, 50
-          m 45, 0
-          a 45,45 0 1,0 -90,0
-          a 45,45 0 1,0 90,0
-        "
+           M 50, 50
+           m 45, 0
+          a 45,45 0 1,1 -90,0
+          a 45,45 0 1,1 90,0"
       ></path>
     </g>
   </svg>
@@ -180,26 +172,21 @@ export function newAnswer(answerObj) {
 
       function startTimer() {
         timerInterval = setInterval(() => {
-          timePassed = timePassed += 1;
+          timePassed++;
           timeLeft = TIME_LIMIT - timePassed;
           document.getElementById("base-timer-label").innerHTML =
             formatTime(timeLeft);
           setCircleDasharray();
 
           if (timeLeft === 0) {
-            onTimesUp();
+            onTimesUp()
           }
         }, 1000);
       }
 
       function formatTime(time) {
-        const minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-        if (seconds < 10) {
-          seconds = `0${seconds}`;
-        }
-
-        return `${seconds}`;
+        const seconds = time % 60;
+        return `${seconds < 10 ? "0" : ""}${seconds}`;
       }
 
       function calculateTimeFraction() {
@@ -208,6 +195,7 @@ export function newAnswer(answerObj) {
       }
 
       function setCircleDasharray() {
+        const FULL_DASH_ARRAY = 283;
         const circleDasharray = `${(
           calculateTimeFraction() * FULL_DASH_ARRAY
         ).toFixed(0)} 283`;
