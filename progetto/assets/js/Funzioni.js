@@ -216,9 +216,11 @@ export function newAnswer(answerObj) {
       footerSpan.textContent = "/" + questions.length;
 
       let bottone = html.querySelector("#container2 .button");
-      bottone.addEventListener("click", () => {
-        bottone.classList.toggle("clicked");
-        console.log(bottone);
+      let container = html.querySelector("#container2");
+      container.addEventListener("click", (event) => {
+        if (event.target.classList.contains('button')) {
+          event.target.classList.toggle("clicked");
+        }
       });
 
       //inserisco contenuto
