@@ -186,7 +186,7 @@ export function newAnswer(answerObj) {
 
       function formatTime(time) {
         const seconds = time % 60;
-        return seconds
+        return seconds;
       }
 
       function calculateTimeFraction() {
@@ -259,35 +259,59 @@ export function newAnswer(answerObj) {
       target.append(html);
     });
   //verifico che abbia salvato le risposte
-  console.log("Risposte corrette:", risposteCorrette);
-  console.log("Risposte sbagliate:", risposteSbagliate);
+  return risposteCorrette, risposteSbagliate
+ 
 }
+
+const data = {
+    labels: [
+      'Correct',
+      'Wrong'
+    ],
+    datasets: [{
+      label: 'Answers',
+      data: [7, 3],
+      backgroundColor: [
+        '#00ffff',
+        '#d20094'
+      ],
+      hoverOffset: 4
+    }]
+  };
 
 export function results(risposteCorrette, risposteSbagliate) {
   fetch("template2.html")
     .then((res) => res.text())
     .then((res) => {
-        let target = document.querySelector("#target");
-        target.innerHTML = res;
+      let target = document.querySelector("#target");
+      target.innerHTML = res;
 
       let html = target.querySelector("#container1"); //ricevo oggetto html
-
-      
 
       //seleziono gli elementi
       let titleDOM = html.querySelector(".title2");
       let paragraph2DOM = html.querySelector(".paragraph2");
-      let correctDOM = html.querySelector('.flex-container .correct');
-      let wrongDOM = html.querySelector('.flex-container .wrong');
-      let totqDOM = html.querySelector('.flex-container .correct .paragraph3 .totQ');
-        console.log(totqDOM,);
+      let correctDOM = html.querySelector(".flex-container .correct");
+      let wrongDOM = html.querySelector(".flex-container .wrong");
+      let totqDOM = html.querySelector(
+        ".flex-container .correct .paragraph3 .totQ"
+      );
+      let chartDOM = html.querySelector(".flex-container .congr .chart");
+      console.log(totqDOM);
       //inserisco contenuto
-     titleDOM.textContent = 'Results';
-     paragraph2DOM.textContent = 'The summary of your answers:';
-        correctDOM.textContent = 'Correct';
-        wrongDOM.textContent = 'Wrong';
-        totqDOM.textContent = "/" + questions.length;
-        
+      titleDOM.textContent = "Results";
+      paragraph2DOM.textContent = "The summary of your answers:";
+      correctDOM.textContent = "Correct";
+      wrongDOM.textContent = "Wrong";
+      totqDOM.textContent = "/" + questions.length;
+      
+      
+     
 
+      const ctx = chartDOM.getContext("2d");
+      const myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data
+      });
     });
 }
