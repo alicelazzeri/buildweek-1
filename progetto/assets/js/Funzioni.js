@@ -279,16 +279,15 @@ export function results(risposteCorrette, risposteSbagliate) {
       let paragraph2DOM = html.querySelector(".paragraph2");
       let correctDOM = html.querySelector('.flex-container .correct');
       let wrongDOM = html.querySelector('.flex-container .wrong');
-      let totqCorDOM = correctDOM.querySelector('.paragraph3 .totQ');
-      let totqWrongDOM = wrongDOM.querySelector('.paragraph4 .totQ');
-        console.log(totqCorDOM,totqWrongDOM);
+      let totqDOM = html.querySelector('.flex-container .correct .paragraph3 .totQ');
+        console.log(totqDOM,);
       //inserisco contenuto
      titleDOM.textContent = 'Results';
      paragraph2DOM.textContent = 'The summary of your answers:';
         correctDOM.textContent = 'Correct';
         wrongDOM.textContent = 'Wrong';
-        totqCorDOM.textContent = "/" + questions.length;
-        totqWrongDOM.textContent = "/" + questions.length;
+        totqDOM.textContent = "/" + questions.length;
+        
 
     });
 }
