@@ -9,6 +9,7 @@ import {
   newAnswer,
   questions,
   shuffle,
+  results
 } from "./Funzioni.js";
 
 creaElementoId("div", "body", "container1", "");
@@ -69,6 +70,7 @@ link.addEventListener("click", () => {
         document.querySelector("#container1").innerHTML = "";
         document.querySelector("#target").innerHTML = "";
         document.querySelector(".next").remove();
+        results(risposteCorrette,risposteSbagliate);
       } else {
         newAnswer(questions[indice]);
         indice++;

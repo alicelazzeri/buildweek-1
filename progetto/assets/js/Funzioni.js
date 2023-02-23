@@ -179,7 +179,7 @@ export function newAnswer(answerObj) {
           setCircleDasharray();
 
           if (timeLeft === 0) {
-            onTimesUp()
+            onTimesUp();
           }
         }, 1000);
       }
@@ -220,7 +220,6 @@ export function newAnswer(answerObj) {
       //evento click sui bottoni
       let bottone = html.querySelector("#container2 .button");
       let container = html.querySelector("#container2");
-      
 
       container.addEventListener("click", (event) => {
         if (event.target.classList.contains("button")) {
@@ -258,9 +257,38 @@ export function newAnswer(answerObj) {
       bottone.remove(); //rimuovo la prima option
 
       target.append(html);
-      
     });
-            //verifico che abbia salvato le risposte
-            console.log('Risposte corrette:', risposteCorrette);
-            console.log('Risposte sbagliate:', risposteSbagliate);
+  //verifico che abbia salvato le risposte
+  console.log("Risposte corrette:", risposteCorrette);
+  console.log("Risposte sbagliate:", risposteSbagliate);
+}
+
+export function results(risposteCorrette, risposteSbagliate) {
+  fetch("template2.html")
+    .then((res) => res.text())
+    .then((res) => {
+        let target = document.querySelector("#target");
+        target.innerHTML = res;
+
+      let html = target.querySelector("#container1"); //ricevo oggetto html
+
+      
+
+      //seleziono gli elementi
+      let titleDOM = html.querySelector(".title2");
+      let paragraph2DOM = html.querySelector(".paragraph2");
+      let correctDOM = html.querySelector('.flex-container .correct');
+      let wrongDOM = html.querySelector('.flex-container .wrong');
+      let totqCorDOM = correctDOM.querySelector('.paragraph3 .totQ');
+      let totqWrongDOM = wrongDOM.querySelector('.paragraph4 .totQ');
+        console.log(totqCorDOM,totqWrongDOM);
+      //inserisco contenuto
+     titleDOM.textContent = 'Results';
+     paragraph2DOM.textContent = 'The summary of your answers:';
+        correctDOM.textContent = 'Correct';
+        wrongDOM.textContent = 'Wrong';
+        totqCorDOM.textContent = "/" + questions.length;
+        totqWrongDOM.textContent = "/" + questions.length;
+
+    });
 }

@@ -72,6 +72,16 @@ body {
   font-size: 16px;
 }
 
+.paragraph4{
+  line-height: 1.5rem;
+  font-size: 16px;
+}
+
+.totQ{
+  line-height: 1.5rem;
+  font-size: 16px;
+}
+
 .flex-container{
   display: flex;
   justify-content: space-between;
