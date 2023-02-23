@@ -14,7 +14,7 @@ export const questions = [
   {
     category: "Science: Computers",
     type: "multiple",
-    difficulty: "easy",
+    difficulty: "hard",
     question:
       "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
     correct_answer: "Final",
@@ -31,7 +31,7 @@ export const questions = [
   {
     category: "Science: Computers",
     type: "boolean",
-    difficulty: "easy",
+    difficulty: "hard",
     question:
       "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
@@ -40,7 +40,7 @@ export const questions = [
   {
     category: "Science: Computers",
     type: "multiple",
-    difficulty: "easy",
+    difficulty: "hard",
     question:
       "What is the most preferred image format used for logos in the Wikimedia database?",
     correct_answer: ".svg",
@@ -126,7 +126,7 @@ export let indice = 0;
 let risposteCorrette = [];
 let risposteSbagliate = [];
 let currentQuestionIndex = 0;
-const TIME_LIMIT = 60;
+let TIME_LIMIT = 30;
 let timeLeft = TIME_LIMIT;
 let timerInterval;
 export function startTimer(answerObj) {
@@ -144,7 +144,6 @@ export function startTimer(answerObj) {
        newAnswer(answerObj)
        startTimer(answerObj);
        timeLeft = TIME_LIMIT; 
-       console.log(timeLeft);
      }
      timeLeft--;
    }, 1000);
@@ -235,6 +234,10 @@ export function newAnswer(answerObj) {
 
       if (!bottone.classList.contains("clicked")) {
         risposteSbagliate.push('null');
+      }
+
+      if (answerObj.difficulty === 'hard') {
+        TIME_LIMIT = 60;
       }
 
       //inserisco contenuto    
