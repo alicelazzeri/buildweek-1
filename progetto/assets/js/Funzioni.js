@@ -115,12 +115,12 @@ export function creaElemento(elemento, padre, testo) {
 }
 
 export function shuffle(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
+  return array;
+}
 
 let currentQuestionIndex = 0;
 export function newAnswer(answerObj) {
@@ -227,10 +227,12 @@ export function newAnswer(answerObj) {
       let footerSpan = html.querySelector(".color");
       footerSpan.textContent = "/" + questions.length;
 
+      let bottone = html.querySelector("#container2 .button");
+      bottone.addEventListener("click", () => {
+        bottone.classList.toggle("clicked");
+        console.log(bottone);
+      });
       
-      
-
-
       //inserisco contenuto
       titleDOM.textContent = answerObj.question;
 
@@ -243,8 +245,8 @@ export function newAnswer(answerObj) {
       }
 
       for (let risp of risposte) {
-        let optionClone = html.querySelector("#container2 .button").cloneNode();
-        
+        let optionClone = bottone.cloneNode();
+
         optionClone.textContent = risp;
 
         answersDOM.append(optionClone);

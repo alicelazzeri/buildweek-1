@@ -160,7 +160,7 @@ body {
   cursor: pointer;
 }
 
-.button:active{
+.button:active, .clicked{
   background: linear-gradient(180deg, #d20094, rgba(45, 42, 192, 0.007));
 }
 
