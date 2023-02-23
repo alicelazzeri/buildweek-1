@@ -299,6 +299,8 @@ export function results(risposteCorrette, risposteSbagliate) {
       );
       let chartDOM = html.querySelector(".flex-container .congr .chart");
       console.log(totqDOM);
+
+      
       //inserisco contenuto
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
