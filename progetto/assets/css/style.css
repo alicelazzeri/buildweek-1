@@ -138,9 +138,6 @@ body {
   cursor: pointer;
 }
 
-#check {
-}
-
 #check, label{
   font-size: 13px;
   font-weight: 500;
