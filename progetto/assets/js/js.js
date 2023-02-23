@@ -56,7 +56,7 @@ label.setAttribute("for", "check");
 creaElementoClasse("a", "#container3", "link", "PROCEED");
 
 //pagina 2
-let lastQuestionIndex = questions.length - 1;
+let lastQuestionIndex = questions.length;
 let risposteCorrette = [];
 let risposteSbagliate = [];
 

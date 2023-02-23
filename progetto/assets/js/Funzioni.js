@@ -126,14 +126,13 @@ export let indice = 0;
 let risposteCorrette = [];
 let risposteSbagliate = [];
 let currentQuestionIndex = 0;
-const TIME_LIMIT = 10;
+const TIME_LIMIT = 60;
 let timeLeft = TIME_LIMIT;
 let timerInterval;
 export function startTimer(answerObj) {
   if(timerInterval){
     clearInterval(timerInterval);
     timeLeft = TIME_LIMIT;
-    console.log(timeLeft);
   }
   timerInterval = setInterval(() => {
      document.getElementById("base-timer-label").innerHTML =
@@ -234,6 +233,10 @@ export function newAnswer(answerObj) {
         }
       });
 
+      if (!bottone.classList.contains("clicked")) {
+        risposteSbagliate.push('null');
+      }
+
       //inserisco contenuto    
 
       titleDOM.textContent = answerObj.question;
@@ -262,8 +265,8 @@ export function newAnswer(answerObj) {
     indice++;
   //verifico che abbia salvato le risposte
   return data.datasets[0].data[0] = risposteCorrette.length,
-         data.datasets[0].data[1] = risposteSbagliate.length
- 
+         data.datasets[0].data[1] = risposteSbagliate.length,
+    console.log(risposteCorrette, risposteSbagliate);
 }
 
 const data = {
