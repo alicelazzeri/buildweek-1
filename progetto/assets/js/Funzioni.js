@@ -244,7 +244,9 @@ export function newAnswer(answerObj) {
         risposte.push(val);
       }
 
+      
       for (let risp of risposte) {
+        
         let optionClone = bottone.cloneNode();
 
         optionClone.textContent = risp;
