@@ -301,12 +301,11 @@ export function results(risposteCorrette, risposteSbagliate) {
       let titleDOM = html.querySelector(".title2");
       let paragraph2DOM = html.querySelector(".paragraph2");
       let correctDOM = html.querySelector(".flex-container .correct");
+      
+      
       let wrongDOM = html.querySelector(".flex-container .wrong");
-      let totqDOM = html.querySelector(
-        ".flex-container .correct .paragraph3 .totQ"
-      );
       let chartDOM = html.querySelector(".flex-container .congr .chart");
-      console.log(totqDOM);
+
 
       
       //inserisco contenuto
@@ -314,7 +313,7 @@ export function results(risposteCorrette, risposteSbagliate) {
       paragraph2DOM.textContent = "The summary of your answers:";
       correctDOM.textContent = "Correct";
       wrongDOM.textContent = "Wrong";
-      totqDOM.textContent = "/" + questions.length;
+      
 
       const ctx = chartDOM.getContext("2d");
       const myChart = new Chart(ctx, {
