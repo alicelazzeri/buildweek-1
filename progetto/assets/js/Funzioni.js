@@ -238,14 +238,15 @@ export function newAnswer(answerObj) {
 
       let risposte = [];
 
+
       risposte.push(answerObj.correct_answer);
 
       for (let val of answerObj.incorrect_answers) {
         risposte.push(val);
       }
-
+      let risposteMix = shuffle(risposte)
       
-      for (let risp of risposte) {
+      for (let risp of risposteMix) {
         
         let optionClone = bottone.cloneNode();
 
