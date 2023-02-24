@@ -331,6 +331,9 @@ export function results() {
       const myChart = new Chart(ctx, {
         type: "doughnut",
         data: data,
+        options: {
+          cutout: "70%",
+        },
       });
       target.appendChild(html);
       let link2 = html.querySelector(".link2");
