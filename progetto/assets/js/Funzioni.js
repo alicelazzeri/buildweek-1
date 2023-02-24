@@ -327,12 +327,40 @@ export function results() {
         type: "doughnut",
         data: data,
       });
-
       target.appendChild(html);
       let link2 = html.querySelector(".link2");
       link2.addEventListener("click", () => {
         target.innerHTML = "";
+        container1.innerHTML = "";
+        ratings();
       });
     });
 }
+
+export function ratings() {
+  fetch("template3.html")
+    .then((res) => res.text())
+    .then((res) => {
+      let target = document.querySelector("#target");
+      let tempDiv = document.createElement("div");
+      tempDiv.innerHTML = res;
+
+      let html = tempDiv.querySelector(".container1");
+
+      let titleDOM = html.querySelector(".title2");
+      let subtitleDOM = html.querySelector(".paragraph2");
+      let starsDOM = html.querySelector('.stars');
+      let starsSpanDOM = starsDOM.querySelectorAll('.fa fa-star checked');
+      let paragraph2DOM = html.querySelector(".container4 .paragraph2");
+      let inputDOM = html.querySelector('.container4 input');
+      let infoDOM = html.querySelector('.footer2 .link');
+
+      titleDOM.textContent = "Tell us how it's going";
+      subtitleDOM.textContent = "From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?";
+      paragraph2DOM.textContent = 'Leave us an open feedback about your experience so far';
+      infoDOM.textContent = 'MORE INFO';
+      
+      target.appendChild(html);
+    })};
+
 

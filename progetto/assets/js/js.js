@@ -13,7 +13,8 @@ import {
   startTimer,
   indice,
   rCorrette,
-  rSbagliate
+  rSbagliate,
+  ratings
 } from "./Funzioni.js";
 
 creaElementoId("div", "body", "container1", "");
@@ -88,6 +89,10 @@ link.addEventListener("click", () => {
     alert("confirm");
   }
 });
+
+ratings();
+
+
 
 
 
