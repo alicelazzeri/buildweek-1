@@ -14,7 +14,6 @@ import {
   indice,
   rCorrette,
   rSbagliate,
-  ratings
 } from "./Funzioni.js";
 
 creaElementoId("div", "body", "container1", "");

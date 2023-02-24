@@ -129,14 +129,14 @@ let currentQuestionIndex = 0;
 let timerInterval;
 
 export function startTimer(timeLimit) {
-  let timeLeft = timeLimit
+  let timeLeft = timeLimit;
   if (timerInterval) {
     clearInterval(timerInterval);
   }
 
   timerInterval = setInterval(() => {
     timeLeft--;
-    const tl = document.getElementById("base-timer-label")
+    const tl = document.getElementById("base-timer-label");
 
     if (tl) {
       tl.innerHTML = formatTime(timeLeft);
@@ -144,11 +144,11 @@ export function startTimer(timeLimit) {
     }
 
     if (timeLeft === 0) {
-      let next = document.querySelector(".next")
+      let next = document.querySelector(".next");
       if (next) {
-        next.click()
+        next.click();
       }
-      clearInterval(timerInterval)
+      clearInterval(timerInterval);
     }
   }, 1000);
 }
@@ -182,7 +182,7 @@ export function newAnswer(answerObj) {
       let html = target.querySelector("#container1");
 
       //timer
-      const timeLimit = answerObj.difficulty === "hard" ? 60 : 30
+      const timeLimit = answerObj.difficulty === "hard" ? 60 : 30;
 
       document.getElementById("timer").innerHTML = `
 <div class="base-timer">
@@ -202,8 +202,8 @@ export function newAnswer(answerObj) {
     </g>
   </svg>
   <span id="base-timer-label" class="base-timer__label">${formatTime(
-        timeLimit
-      )}</span>
+    timeLimit
+  )}</span>
 </div>
 `;
       //seleziono gli elementi
@@ -265,15 +265,17 @@ export function newAnswer(answerObj) {
 
       target.append(html);
 
-      startTimer(timeLimit)
+      startTimer(timeLimit);
     });
   indice++;
 
   //verifico che abbia salvato le risposte
-  return data.datasets[0].data[0] = risposteCorrette.length,
-    data.datasets[0].data[1] = risposteSbagliate.length,
-    rCorrette[0] = risposteCorrette.length,
-    rSbagliate[0] = risposteSbagliate.length
+  return (
+    (data.datasets[0].data[0] = risposteCorrette.length),
+    (data.datasets[0].data[1] = risposteSbagliate.length),
+    (rCorrette[0] = risposteCorrette.length),
+    (rSbagliate[0] = risposteSbagliate.length)
+  );
 }
 export let rCorrette = [];
 export let rSbagliate = [];
@@ -309,17 +311,19 @@ export function results() {
       let titleSbagl = html.querySelector(".flex-container .wrong .title3");
       let correctPercentageDOM = correctDOM.querySelector(".b");
       let wrongPercentageDOM = wrongDOM.querySelector(".b");
-      let correctPercentage = (risposteCorrette.length / questions.length) * 100;
+      let correctPercentage =
+        (risposteCorrette.length / questions.length) * 100;
       let wrongPercentage = (risposteSbagliate.length / questions.length) * 100;
 
-
-      titleCorr.textContent = 'Correct';
-      titleSbagl.textContent = 'Wrong';
+      titleCorr.textContent = "Correct";
+      titleSbagl.textContent = "Wrong";
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
 
-      correctDOM.querySelector(".totQ").textContent = risposteCorrette.length + ' /' + questions.length + ' questions';
-      wrongDOM.querySelector(".totQ").textContent = risposteSbagliate.length + ' /' + questions.length + ' questions';
+      correctDOM.querySelector(".totQ").textContent =
+        risposteCorrette.length + " /" + questions.length + " questions";
+      wrongDOM.querySelector(".totQ").textContent =
+        risposteSbagliate.length + " /" + questions.length + " questions";
       correctPercentageDOM.textContent = `${correctPercentage}%`;
       wrongPercentageDOM.textContent = `${wrongPercentage}%`;
 
@@ -350,32 +354,36 @@ export function ratings() {
 
       let titleDOM = html.querySelector(".title2");
       let subtitleDOM = html.querySelector(".paragraph2");
-      let starsDOM = html.querySelector('.stars');
-      let starsSpanDOM = starsDOM.querySelectorAll('.fa fa-star checked');
+      let starsDOM = html.querySelector(".stars");
+
       let paragraph2DOM = html.querySelector(".container8 .paragraph2");
-      let inputDOM = html.querySelector('.container8 input');
-      let infoDOM = html.querySelector('.footer2 .link');
+
+      let infoDOM = html.querySelector(".footer2 .link");
 
       titleDOM.textContent = "Tell us how it's going";
-      subtitleDOM.textContent = "From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?";
-      paragraph2DOM.textContent = 'Leave us an open feedback about your experience so far';
-      infoDOM.textContent = 'MORE INFO';
+      subtitleDOM.textContent =
+        "From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?";
+      paragraph2DOM.textContent =
+        "Leave us an open feedback about your experience so far";
+      infoDOM.textContent = "MORE INFO";
 
-      starsDOM.querySelectorAll('.fa-star').forEach((star, i) => {
-        star.addEventListener('click', () => {
-         
+      starsDOM.querySelectorAll(".fa-star").forEach((star, i) => {
+        star.addEventListener("click", () => {
           for (let j = 0; j <= i; j++) {
-            starsDOM.querySelectorAll('.fa-star')[j].classList.add('checked');
+            starsDOM.querySelectorAll(".fa-star")[j].classList.add("checked");
           }
-          for (let j = i + 1; j < starsDOM.querySelectorAll('.fa-star').length; j++) {
-            starsDOM.querySelectorAll('.fa-star')[j].classList.remove('checked');
+          for (
+            let j = i + 1;
+            j < starsDOM.querySelectorAll(".fa-star").length;
+            j++
+          ) {
+            starsDOM
+              .querySelectorAll(".fa-star")
+              [j].classList.remove("checked");
           }
         });
       });
 
       target.appendChild(html);
-      
-    })
-};
-
-
+    });
+}
