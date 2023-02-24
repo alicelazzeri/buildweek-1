@@ -316,8 +316,9 @@ export function results() {
       titleSbagl.textContent='Wrong';
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
-      correctDOM.querySelector(".totQ").textContent = questions.length +' questions';
-      wrongDOM.querySelector(".totQ").textContent = questions.length+' questions';
+
+      correctDOM.querySelector(".totQ").textContent =risposteCorrette.length +' /' +questions.length +' questions';
+      wrongDOM.querySelector(".totQ").textContent =risposteSbagliate.length+ ' /' +questions.length+' questions';
       correctPercentageDOM.textContent = `${correctPercentage}%`;
       wrongPercentageDOM.textContent = `${wrongPercentage}%`;
 
