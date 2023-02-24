@@ -304,11 +304,16 @@ export function results() {
       let correctDOM = html.querySelector(".flex-container .correct");
       let wrongDOM = html.querySelector(".flex-container .wrong");
       let chartDOM = html.querySelector(".flex-container .congr .chart");
+      let titleCorr = html.querySelector(".flex-container .correct .title3");
+      let titleSbagl = html.querySelector(".flex-container .wrong .title3");
       let correctPercentageDOM = correctDOM.querySelector(".b");
       let wrongPercentageDOM = wrongDOM.querySelector(".b");
       let correctPercentage = (risposteCorrette.length / questions.length) * 100;
       let wrongPercentage = (risposteSbagliate.length / questions.length) * 100;
 
+
+      titleCorr.textContent ='Correct';
+      titleSbagl.textContent='Wrong';
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
       correctDOM.querySelector(".totQ").textContent = questions.length +' questions';
