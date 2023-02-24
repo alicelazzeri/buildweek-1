@@ -267,16 +267,15 @@ export function newAnswer(answerObj) {
     });
   indice++;
   //verifico che abbia salvato le risposte
-  return (
-    (data.datasets[0].data[0] = risposteCorrette.length),
-    (data.datasets[0].data[1] = risposteSbagliate.length),
-    (rCorrette[0] = risposteCorrette.length),
-    (rSbagliate[0] = risposteSbagliate.length)
-  );
+  return data.datasets[0].data[0] = risposteCorrette.length,
+  data.datasets[0].data[1] = risposteSbagliate.length,
+  rCorrette[0] = risposteCorrette.length,
+  rSbagliate[0] = risposteSbagliate.length
+    
+  
 }
-
-export let rCorrette = [];
-export let rSbagliate = [];
+ let rCorrette = [];
+ let rSbagliate = [];
 
 const data = {
   labels: ["Correct", "Wrong"],
@@ -290,47 +289,40 @@ const data = {
   ],
 };
 
-export function results(risposteCorrette, risposteSbagliate) {
+export function results() {
   fetch("template2.html")
     .then((res) => res.text())
     .then((res) => {
       let target = document.querySelector("#target");
-      target.innerHTML = res;
-      let divOspite = document.createElement('div');//creo un elemento ospite
-      divOspite.innerHTML = res
-      let html = divOspite.querySelector("#container1"); //ricevo oggetto html
+      let tempDiv = document.createElement("div");
+      tempDiv.innerHTML = res;
 
-      //seleziono gli elementi
+      let html = tempDiv.querySelector("#container1");
+
       let titleDOM = html.querySelector(".title2");
       let paragraph2DOM = html.querySelector(".paragraph2");
       let correctDOM = html.querySelector(".flex-container .correct");
       let wrongDOM = html.querySelector(".flex-container .wrong");
       let chartDOM = html.querySelector(".flex-container .congr .chart");
-      let correctPercentageDOM = html.querySelector(
-        ".flex-container .correct .b"
-      );
-      let wrongPercentageDOM = html.querySelector(".flex-container .wrong .b");
-let correctPercentage = (rCorrette.length / questions.length) * 100;
-let wrongPercentage = (rSbagliate.length / questions.length) * 100;
+      let correctPercentageDOM = correctDOM.querySelector(".b");
+      let wrongPercentageDOM = wrongDOM.querySelector(".b");
+      let correctPercentage = (rCorrette.length / questions.length) * 100;
+      let wrongPercentage = (rSbagliate.length / questions.length) * 100;
 
-
-
-
-
-      //inserisco contenuto
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
-      correctDOM.textContent = "Correct";
-      wrongDOM.textContent = "Wrong";
+      correctDOM.querySelector(".totQ").textContent = rCorrette.length;
+      wrongDOM.querySelector(".totQ").textContent = rSbagliate.length;
       correctPercentageDOM.textContent = `${correctPercentage}%`;
-wrongPercentageDOM.textContent = `${wrongPercentage}%`;
-
+      wrongPercentageDOM.textContent = `${wrongPercentage}%`;
 
       const ctx = chartDOM.getContext("2d");
       const myChart = new Chart(ctx, {
         type: "doughnut",
         data: data,
       });
+
       target.appendChild(html);
     });
 }
+

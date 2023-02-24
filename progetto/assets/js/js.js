@@ -11,9 +11,7 @@ import {
   shuffle,
   results,
   startTimer,
-  indice,
-  rCorrette,
-  rSbagliate
+  indice
 } from "./Funzioni.js";
 
 creaElementoId("div", "body", "container1", "");
@@ -78,7 +76,7 @@ link.addEventListener("click", () => {
         document.querySelector("#container1").innerHTML = "";
         document.querySelector("#target").innerHTML = "";
         document.querySelector(".next").remove();
-        results(rCorrette,rSbagliate);
+        results();
       } else {
         newAnswer(questions[indice]);
         startTimer(questions[indice]);
