@@ -337,8 +337,11 @@ export function results() {
       });
       const chartText = document.createElement("div");
 chartText.id = "chart-text";
-chartText.textContent = "Ciao";
+if(risposteCorrette.length > risposteSbagliate.length){
+  chartText.textContent = "Ciao";
+}else{chartText.textContent = 'Come va?'}
 chartDOM.parentNode.insertBefore(chartText, chartDOM.nextSibling);
+
 
 // Posiziona il testo al centro della ciambella tramite CSS
 chartText.style.position = "absolute";
