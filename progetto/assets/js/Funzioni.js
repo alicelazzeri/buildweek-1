@@ -329,6 +329,10 @@ export function results() {
       });
 
       target.appendChild(html);
+      let link2 = html.querySelector(".link2");
+      link2.addEventListener("click", () => {
+        target.innerHTML = "";
+      });
     });
 }
 
