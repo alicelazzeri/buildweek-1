@@ -123,8 +123,7 @@ export function shuffle(array) {
 }
 
 export let indice = 0;
-let risposteCorrette = [];
-let risposteSbagliate = [];
+let risposteCorrette = localStorage.getItem("risposte-corrette") ? JSON.parse(localStorage.getItem("risposte-corrette")) : [];
 let currentQuestionIndex = 0;
 let timerInterval;
 
@@ -227,11 +226,9 @@ export function newAnswer(answerObj) {
         if (event.target.classList.contains("button")) {
           event.target.classList.toggle("clicked");
 
-          // Verifichiamo se la risposta data dall'utente è corretta
           if (event.target.textContent === answerObj.correct_answer) {
             risposteCorrette.push(event.target.textContent);
-          } else {
-            risposteSbagliate.push(event.target.textContent);
+           localStorage.setItem("risposte-corrette", JSON.stringify(risposteCorrette));
           }
         }
       });
@@ -270,27 +267,15 @@ export function newAnswer(answerObj) {
   indice++;
 
   //verifico che abbia salvato le risposte
-  return (
+  /*return (
     (data.datasets[0].data[0] = risposteCorrette.length),
     (data.datasets[0].data[1] = risposteSbagliate.length),
     (rCorrette[0] = risposteCorrette.length),
     (rSbagliate[0] = risposteSbagliate.length)
-  );
+  );*/
 }
 export let rCorrette = [];
 export let rSbagliate = [];
-
-const data = {
-  labels: ["Correct", "Wrong"],
-  datasets: [
-    {
-      label: "Answers",
-      data: [0, 0],
-      backgroundColor: ["#00ffff", "#d20094"],
-      hoverOffset: 4,
-    },
-  ],
-};
 
 export function results() {
   fetch("template2.html")
@@ -311,9 +296,10 @@ export function results() {
       let titleSbagl = html.querySelector(".flex-container .wrong .title3");
       let correctPercentageDOM = correctDOM.querySelector(".b");
       let wrongPercentageDOM = wrongDOM.querySelector(".b");
+      let risposteSbagliate = questions.length - risposteCorrette.length;
       let correctPercentage =
         (risposteCorrette.length / questions.length) * 100;
-      let wrongPercentage = (risposteSbagliate.length / questions.length) * 100;
+      let wrongPercentage = (risposteSbagliate / questions.length) * 100;
 
       titleCorr.textContent = "Correct";
       titleSbagl.textContent = "Wrong";
@@ -323,9 +309,22 @@ export function results() {
       correctDOM.querySelector(".totQ").textContent =
         risposteCorrette.length + " /" + questions.length + " questions";
       wrongDOM.querySelector(".totQ").textContent =
-        risposteSbagliate.length + " /" + questions.length + " questions";
+        risposteSbagliate + " /" + questions.length + " questions";
       correctPercentageDOM.textContent = `${correctPercentage}%`;
       wrongPercentageDOM.textContent = `${wrongPercentage}%`;
+
+
+      let data = {
+        labels: ["Correct", "Wrong"],
+        datasets: [
+          {
+            label: "Answers",
+            data: [risposteCorrette.length, risposteSbagliate],
+            backgroundColor: ["#00ffff", "#d20094"],
+            hoverOffset: 4,
+          },
+        ],
+      };
 
       const ctx = chartDOM.getContext("2d");
       const myChart = new Chart(ctx, {

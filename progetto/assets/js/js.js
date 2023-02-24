@@ -59,8 +59,6 @@ creaElementoClasse("a", "#container3", "link", "PROCEED");
 
 //pagina 2
 let lastQuestionIndex = questions.length;
-let risposteCorrette = [];
-let risposteSbagliate = [];
 
 let link = document.querySelector(".link");
 link.addEventListener("click", () => {
