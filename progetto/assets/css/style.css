@@ -283,6 +283,29 @@ body {
 .container4 input:focus {
   outline: none;
 }
+
+.container8 {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+}
+
+.container8 input {
+  margin-top: 1.5rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #d20094;
+  width: 600px;
+  padding-left: 1rem;
+  padding-bottom: 0.3rem;
+  cursor: pointer;
+  color: white;
+}
+
+.container8 input:focus {
+  outline: none;
+}
+
 .footer2 {
   display: flex;
   justify-content: center;

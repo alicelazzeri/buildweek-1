@@ -351,8 +351,8 @@ export function ratings() {
       let subtitleDOM = html.querySelector(".paragraph2");
       let starsDOM = html.querySelector('.stars');
       let starsSpanDOM = starsDOM.querySelectorAll('.fa fa-star checked');
-      let paragraph2DOM = html.querySelector(".container4 .paragraph2");
-      let inputDOM = html.querySelector('.container4 input');
+      let paragraph2DOM = html.querySelector(".container8 .paragraph2");
+      let inputDOM = html.querySelector('.container8 input');
       let infoDOM = html.querySelector('.footer2 .link');
 
       titleDOM.textContent = "Tell us how it's going";
