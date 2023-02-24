@@ -224,19 +224,22 @@ export function newAnswer(answerObj) {
       
       container.addEventListener("click", (event) => {
         if (event.target.classList.contains("button")) {
-          event.target.classList.toggle("clicked");
-
-          if (event.target.textContent === answerObj.correct_answer) {
-            risposteCorrette.push(event.target.textContent);
+          let selectedOption = event.target;
+          let otherOptions = Array.from(container.querySelectorAll(".button")).filter(option => option !== selectedOption);
+          
+          
+          otherOptions.forEach(option => option.classList.remove("clicked"));
+          
+          
+          selectedOption.classList.toggle("clicked");
+      
+          if (selectedOption.textContent === answerObj.correct_answer) {
+            risposteCorrette.push(selectedOption.textContent);
             sessionStorage.setItem("risposte-corrette", JSON.stringify(risposteCorrette));
           }
         }
       });
-
-      /*if (!bottone.classList.contains("clicked")) {
-        risposteSbagliate.push("null");
-      }*/
-
+      
       //inserisco contenuto
 
       titleDOM.textContent = answerObj.question;
@@ -266,13 +269,6 @@ export function newAnswer(answerObj) {
     });
   indice++;
 
-  //verifico che abbia salvato le risposte
-  /*return (
-    (data.datasets[0].data[0] = risposteCorrette.length),
-    (data.datasets[0].data[1] = risposteSbagliate.length),
-    (rCorrette[0] = risposteCorrette.length),
-    (rSbagliate[0] = risposteSbagliate.length)
-  );*/
 }
 export let rCorrette = [];
 export let rSbagliate = [];
