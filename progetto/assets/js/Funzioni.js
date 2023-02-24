@@ -338,8 +338,11 @@ export function results() {
       const chartText = document.createElement("div");
 chartText.id = "chart-text";
 if(risposteCorrette.length > risposteSbagliate.length){
-  chartText.textContent = "Ciao";
-}else{chartText.textContent = 'Come va?'}
+  chartText.textContent = `Congratulations!
+  You passed the exam.
+  We'll send you the certificate in few minutes.
+  Check your email (including promotions / spam folder)`;
+}else{chartText.textContent = 'Ops! You have not passed the exam.'}
 chartDOM.parentNode.insertBefore(chartText, chartDOM.nextSibling);
 
 
