@@ -130,44 +130,44 @@ let TIME_LIMIT = 30;
 let timeLeft = TIME_LIMIT;
 let timerInterval;
 export function startTimer(answerObj) {
-  if(timerInterval){
+  if (timerInterval) {
     clearInterval(timerInterval);
     timeLeft = TIME_LIMIT;
   }
   timerInterval = setInterval(() => {
-     document.getElementById("base-timer-label").innerHTML =
-       formatTime(timeLeft);
-     setCircleDasharray();
+    document.getElementById("base-timer-label").innerHTML =
+      formatTime(timeLeft);
+    setCircleDasharray();
 
-     if (timeLeft === 0) {
-       clearInterval(timerInterval);
-       newAnswer(answerObj)
-       startTimer(answerObj);
-       timeLeft = TIME_LIMIT; 
-     }
-     timeLeft--;
-   }, 1000);
- }
+    if (timeLeft === 0) {
+      clearInterval(timerInterval);
+      newAnswer(answerObj);
+      startTimer(answerObj);
+      timeLeft = TIME_LIMIT;
+    }
+    timeLeft--;
+  }, 1000);
+}
 
- function formatTime(time) {
-   const seconds = time % 60;
-   return seconds;
- }
+function formatTime(time) {
+  const seconds = time % 60;
+  return seconds;
+}
 
- function calculateTimeFraction() {
-   const rawTimeFraction = timeLeft / TIME_LIMIT;
-   return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
- }
+function calculateTimeFraction() {
+  const rawTimeFraction = timeLeft / TIME_LIMIT;
+  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+}
 
- function setCircleDasharray() {
-   const FULL_DASH_ARRAY = 283;
-   const circleDasharray = `${(
-     calculateTimeFraction() * FULL_DASH_ARRAY
-   ).toFixed(0)} 283`;
-   document
-     .getElementById("base-timer-path-remaining")
-     .setAttribute("stroke-dasharray", circleDasharray);
- }
+function setCircleDasharray() {
+  const FULL_DASH_ARRAY = 283;
+  const circleDasharray = `${(
+    calculateTimeFraction() * FULL_DASH_ARRAY
+  ).toFixed(0)} 283`;
+  document
+    .getElementById("base-timer-path-remaining")
+    .setAttribute("stroke-dasharray", circleDasharray);
+}
 
 export function newAnswer(answerObj) {
   fetch("template.html")
@@ -233,14 +233,14 @@ export function newAnswer(answerObj) {
       });
 
       if (!bottone.classList.contains("clicked")) {
-        risposteSbagliate.push('null');
+        risposteSbagliate.push("null");
       }
 
-      if (answerObj.difficulty === 'hard') {
+      if (answerObj.difficulty === "hard") {
         TIME_LIMIT = 60;
       }
 
-      //inserisco contenuto    
+      //inserisco contenuto
 
       titleDOM.textContent = answerObj.question;
 
@@ -265,32 +265,30 @@ export function newAnswer(answerObj) {
 
       target.append(html);
     });
-    indice++;
+  indice++;
   //verifico che abbia salvato le risposte
-  return data.datasets[0].data[0] = risposteCorrette.length,
-         data.datasets[0].data[1] = risposteSbagliate.length,
-        rCorrette[0] = risposteCorrette.length,
-        rSbagliate[0] = risposteSbagliate.length
+  return (
+    (data.datasets[0].data[0] = risposteCorrette.length),
+    (data.datasets[0].data[1] = risposteSbagliate.length),
+    (rCorrette[0] = risposteCorrette.length),
+    (rSbagliate[0] = risposteSbagliate.length)
+  );
 }
 
-export let rCorrette = []
-export let rSbagliate = []
+export let rCorrette = [];
+export let rSbagliate = [];
 
 const data = {
-    labels: [
-      'Correct',
-      'Wrong'
-    ],
-    datasets: [{
-      label: 'Answers',
+  labels: ["Correct", "Wrong"],
+  datasets: [
+    {
+      label: "Answers",
       data: [0, 0],
-      backgroundColor: [
-        '#00ffff',
-        '#d20094'
-      ],
-      hoverOffset: 4
-    }]
-  };
+      backgroundColor: ["#00ffff", "#d20094"],
+      hoverOffset: 4,
+    },
+  ],
+};
 
 export function results(risposteCorrette, risposteSbagliate) {
   fetch("template2.html")
@@ -305,24 +303,32 @@ export function results(risposteCorrette, risposteSbagliate) {
       let titleDOM = html.querySelector(".title2");
       let paragraph2DOM = html.querySelector(".paragraph2");
       let correctDOM = html.querySelector(".flex-container .correct");
-      
-      
       let wrongDOM = html.querySelector(".flex-container .wrong");
       let chartDOM = html.querySelector(".flex-container .congr .chart");
+      let correctPercentageDOM = html.querySelector(
+        ".flex-container .correct .b"
+      );
+      let wrongPercentageDOM = html.querySelector(".flex-container .wrong .b");
+let correctPercentage = (rCorrette.length / questions.length) * 100;
+let wrongPercentage = (rSbagliate.length / questions.length) * 100;
 
 
-      
+
+
+
       //inserisco contenuto
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
       correctDOM.textContent = "Correct";
       wrongDOM.textContent = "Wrong";
-      
+      correctPercentageDOM.textContent = `${correctPercentage}%`;
+wrongPercentageDOM.textContent = `${wrongPercentage}%`;
 
       const ctx = chartDOM.getContext("2d");
       const myChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: data
+        type: "doughnut",
+        data: data,
       });
+      target.appendChild(html);
     });
 }
