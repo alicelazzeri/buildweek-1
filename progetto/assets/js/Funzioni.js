@@ -274,8 +274,8 @@ export function newAnswer(answerObj) {
     
   
 }
- let rCorrette = [];
- let rSbagliate = [];
+export let rCorrette = [];
+export let rSbagliate = [];
 
 const data = {
   labels: ["Correct", "Wrong"],
@@ -306,13 +306,13 @@ export function results() {
       let chartDOM = html.querySelector(".flex-container .congr .chart");
       let correctPercentageDOM = correctDOM.querySelector(".b");
       let wrongPercentageDOM = wrongDOM.querySelector(".b");
-      let correctPercentage = (rCorrette.length / questions.length) * 100;
-      let wrongPercentage = (rSbagliate.length / questions.length) * 100;
+      let correctPercentage = (risposteCorrette.length / questions.length) * 100;
+      let wrongPercentage = (risposteSbagliate.length / questions.length) * 100;
 
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
-      correctDOM.querySelector(".totQ").textContent = rCorrette.length;
-      wrongDOM.querySelector(".totQ").textContent = rSbagliate.length;
+      correctDOM.querySelector(".totQ").textContent = questions.length +' questions';
+      wrongDOM.querySelector(".totQ").textContent = questions.length+' questions';
       correctPercentageDOM.textContent = `${correctPercentage}%`;
       wrongPercentageDOM.textContent = `${wrongPercentage}%`;
 
