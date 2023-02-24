@@ -126,43 +126,46 @@ export let indice = 0;
 let risposteCorrette = [];
 let risposteSbagliate = [];
 let currentQuestionIndex = 0;
-let TIME_LIMIT = 30;
-let timeLeft = TIME_LIMIT;
 let timerInterval;
-export function startTimer(answerObj) {
+
+export function startTimer(timeLimit) {
+  let timeLeft = timeLimit
   if (timerInterval) {
     clearInterval(timerInterval);
-    timeLeft = TIME_LIMIT;
   }
+
   timerInterval = setInterval(() => {
-    document.getElementById("base-timer-label").innerHTML =
-      formatTime(timeLeft);
-    setCircleDasharray();
+    timeLeft--;
+    const tl = document.getElementById("base-timer-label")
+
+    if (tl) {
+      tl.innerHTML = formatTime(timeLeft);
+      setCircleDasharray(timeLeft, timeLimit);
+    }
 
     if (timeLeft === 0) {
-      clearInterval(timerInterval);
-      newAnswer(answerObj);
-      startTimer(answerObj);
-      timeLeft = TIME_LIMIT;
+      let next = document.querySelector(".next")
+      if (next) {
+        next.click()
+      }
+      clearInterval(timerInterval)
     }
-    timeLeft--;
   }, 1000);
 }
 
 function formatTime(time) {
-  const seconds = time % 60;
-  return seconds;
+  return time;
 }
 
-function calculateTimeFraction() {
-  const rawTimeFraction = timeLeft / TIME_LIMIT;
-  return rawTimeFraction - (1 / TIME_LIMIT) * (1 - rawTimeFraction);
+function calculateTimeFraction(timeLeft, timeLimit) {
+  const rawTimeFraction = timeLeft / timeLimit;
+  return rawTimeFraction - (1 / timeLimit) * (1 - rawTimeFraction);
 }
 
-function setCircleDasharray() {
+function setCircleDasharray(timeLeft, timeLimit) {
   const FULL_DASH_ARRAY = 283;
   const circleDasharray = `${(
-    calculateTimeFraction() * FULL_DASH_ARRAY
+    calculateTimeFraction(timeLeft, timeLimit) * FULL_DASH_ARRAY
   ).toFixed(0)} 283`;
   document
     .getElementById("base-timer-path-remaining")
@@ -179,6 +182,7 @@ export function newAnswer(answerObj) {
       let html = target.querySelector("#container1");
 
       //timer
+      const timeLimit = answerObj.difficulty === "hard" ? 60 : 30
 
       document.getElementById("timer").innerHTML = `
 <div class="base-timer">
@@ -198,8 +202,8 @@ export function newAnswer(answerObj) {
     </g>
   </svg>
   <span id="base-timer-label" class="base-timer__label">${formatTime(
-    timeLeft
-  )}</span>
+        timeLimit
+      )}</span>
 </div>
 `;
       //seleziono gli elementi
@@ -236,10 +240,6 @@ export function newAnswer(answerObj) {
         risposteSbagliate.push("null");
       }*/
 
-      if (answerObj.difficulty === "hard") {
-        TIME_LIMIT = 60;
-      }
-
       //inserisco contenuto
 
       titleDOM.textContent = answerObj.question;
@@ -264,15 +264,16 @@ export function newAnswer(answerObj) {
       bottone.remove(); //rimuovo la prima option
 
       target.append(html);
+
+      startTimer(timeLimit)
     });
   indice++;
+
   //verifico che abbia salvato le risposte
   return data.datasets[0].data[0] = risposteCorrette.length,
-  data.datasets[0].data[1] = risposteSbagliate.length,
-  rCorrette[0] = risposteCorrette.length,
-  rSbagliate[0] = risposteSbagliate.length
-    
-  
+    data.datasets[0].data[1] = risposteSbagliate.length,
+    rCorrette[0] = risposteCorrette.length,
+    rSbagliate[0] = risposteSbagliate.length
 }
 export let rCorrette = [];
 export let rSbagliate = [];
@@ -288,7 +289,6 @@ const data = {
     },
   ],
 };
-
 
 export function results() {
   fetch("template2.html")
@@ -313,13 +313,13 @@ export function results() {
       let wrongPercentage = (risposteSbagliate.length / questions.length) * 100;
 
 
-      titleCorr.textContent ='Correct';
-      titleSbagl.textContent='Wrong';
+      titleCorr.textContent = 'Correct';
+      titleSbagl.textContent = 'Wrong';
       titleDOM.textContent = "Results";
       paragraph2DOM.textContent = "The summary of your answers:";
 
-      correctDOM.querySelector(".totQ").textContent =risposteCorrette.length +' /' +questions.length +' questions';
-      wrongDOM.querySelector(".totQ").textContent =risposteSbagliate.length+ ' /' +questions.length+' questions';
+      correctDOM.querySelector(".totQ").textContent = risposteCorrette.length + ' /' + questions.length + ' questions';
+      wrongDOM.querySelector(".totQ").textContent = risposteSbagliate.length + ' /' + questions.length + ' questions';
       correctPercentageDOM.textContent = `${correctPercentage}%`;
       wrongPercentageDOM.textContent = `${wrongPercentage}%`;
 
@@ -328,8 +328,6 @@ export function results() {
         type: "doughnut",
         data: data,
       });
-
-    
       target.appendChild(html);
       let link2 = html.querySelector(".link2");
       link2.addEventListener("click", () => {
@@ -347,7 +345,7 @@ export function ratings() {
       let target = document.querySelector("#target");
       let tempDiv = document.createElement("div");
       tempDiv.innerHTML = res;
-      
+
       let html = tempDiv.querySelector("#container7");
 
       let titleDOM = html.querySelector(".title2");
@@ -365,7 +363,7 @@ export function ratings() {
 
       starsDOM.querySelectorAll('.fa-star').forEach((star, i) => {
         star.addEventListener('click', () => {
-          // Toggle "checked" class on clicked element and previous sibling elements
+         
           for (let j = 0; j <= i; j++) {
             starsDOM.querySelectorAll('.fa-star')[j].classList.add('checked');
           }
@@ -374,8 +372,10 @@ export function ratings() {
           }
         });
       });
-      
+
       target.appendChild(html);
-    })};
+      
+    })
+};
 
 

@@ -82,7 +82,6 @@ link.addEventListener("click", () => {
         results(rCorrette,rSbagliate);
       } else {
         newAnswer(questions[indice]);
-        startTimer(questions[indice]);
       }
     });
   } else {
