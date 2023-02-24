@@ -123,7 +123,7 @@ export function shuffle(array) {
 }
 
 export let indice = 0;
-let risposteCorrette = localStorage.getItem("risposte-corrette") ? JSON.parse(localStorage.getItem("risposte-corrette")) : [];
+let risposteCorrette = sessionStorage.getItem("risposte-corrette") ? JSON.parse(sessionStorage.getItem("risposte-corrette")) : [];
 let currentQuestionIndex = 0;
 let timerInterval;
 
@@ -228,7 +228,7 @@ export function newAnswer(answerObj) {
 
           if (event.target.textContent === answerObj.correct_answer) {
             risposteCorrette.push(event.target.textContent);
-           localStorage.setItem("risposte-corrette", JSON.stringify(risposteCorrette));
+            sessionStorage.setItem("risposte-corrette", JSON.stringify(risposteCorrette));
           }
         }
       });
