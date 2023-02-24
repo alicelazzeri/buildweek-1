@@ -335,6 +335,20 @@ export function results() {
           cutout: "70%",
         },
       });
+      const chartText = document.createElement("div");
+chartText.id = "chart-text";
+chartText.textContent = "Ciao";
+chartDOM.parentNode.insertBefore(chartText, chartDOM.nextSibling);
+
+// Posiziona il testo al centro della ciambella tramite CSS
+chartText.style.position = "absolute";
+chartText.style.top = "50%";
+chartText.style.left = "50%";
+chartText.style.transform = "translate(-50%, -50%)";
+chartText.style.fontSize = "20px";
+chartText.style.fontWeight = "bold";
+chartText.style.color = "white";
+
       target.appendChild(html);
       let link2 = html.querySelector(".link2");
       link2.addEventListener("click", () => {
