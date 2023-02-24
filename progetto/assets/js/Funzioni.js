@@ -221,7 +221,7 @@ export function newAnswer(answerObj) {
       //evento click sui bottoni
       let bottone = html.querySelector("#container2 .button");
       let container = html.querySelector("#container2");
-
+      
       container.addEventListener("click", (event) => {
         if (event.target.classList.contains("button")) {
           event.target.classList.toggle("clicked");
@@ -336,7 +336,7 @@ export function results() {
       });
       const chartText = document.createElement("div");
 chartText.id = "chart-text";
-if(risposteCorrette.length > risposteSbagliate.length){
+if(risposteCorrette.length > risposteSbagliate){
   chartText.textContent = `Congratulations!
   You passed the exam.
   We'll send you the certificate in few minutes.
