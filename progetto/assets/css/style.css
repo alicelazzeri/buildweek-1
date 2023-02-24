@@ -251,15 +251,16 @@ body {
 }
 
 .stars span {
-  color: white;
+  color: rgb(46, 46, 46);
   font-size: 40px;
   margin: 0 2px;
 }
 
 
-.stars span:active{
+.fa-star.checked{
   color: #00ffff; 
    cursor: pointer;
+   box-shadow: 0 0 20px #00ffff52;
 }
 
 .container4 {

@@ -289,6 +289,7 @@ const data = {
   ],
 };
 
+
 export function results() {
   fetch("template2.html")
     .then((res) => res.text())
@@ -327,6 +328,8 @@ export function results() {
         type: "doughnut",
         data: data,
       });
+
+    
       target.appendChild(html);
       let link2 = html.querySelector(".link2");
       link2.addEventListener("click", () => {
@@ -359,6 +362,18 @@ export function ratings() {
       subtitleDOM.textContent = "From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?";
       paragraph2DOM.textContent = 'Leave us an open feedback about your experience so far';
       infoDOM.textContent = 'MORE INFO';
+
+      starsDOM.querySelectorAll('.fa-star').forEach((star, i) => {
+        star.addEventListener('click', () => {
+          // Toggle "checked" class on clicked element and previous sibling elements
+          for (let j = 0; j <= i; j++) {
+            starsDOM.querySelectorAll('.fa-star')[j].classList.add('checked');
+          }
+          for (let j = i + 1; j < starsDOM.querySelectorAll('.fa-star').length; j++) {
+            starsDOM.querySelectorAll('.fa-star')[j].classList.remove('checked');
+          }
+        });
+      });
       
       target.appendChild(html);
     })};
