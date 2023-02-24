@@ -269,8 +269,12 @@ export function newAnswer(answerObj) {
   //verifico che abbia salvato le risposte
   return data.datasets[0].data[0] = risposteCorrette.length,
          data.datasets[0].data[1] = risposteSbagliate.length,
-    console.log(risposteCorrette, risposteSbagliate);
+        rCorrette[0] = risposteCorrette.length,
+        rSbagliate[0] = risposteSbagliate.length
 }
+
+export let rCorrette = []
+export let rSbagliate = []
 
 const data = {
     labels: [
