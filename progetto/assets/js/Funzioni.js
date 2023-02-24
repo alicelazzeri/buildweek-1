@@ -343,9 +343,10 @@ export function ratings() {
     .then((res) => {
       let target = document.querySelector("#target");
       let tempDiv = document.createElement("div");
+      let container1 = document.querySelector('#container1')
+      container1.innerHTML= '';
       tempDiv.innerHTML = res;
-
-      let html = tempDiv.querySelector(".container1");
+      let html = tempDiv.querySelector("#container7");
 
       let titleDOM = html.querySelector(".title2");
       let subtitleDOM = html.querySelector(".paragraph2");
