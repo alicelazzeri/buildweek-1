@@ -351,7 +351,7 @@ chartText.style.position = "absolute";
 chartText.style.top = "50%";
 chartText.style.left = "50%";
 chartText.style.transform = "translate(-50%, -50%)";
-chartText.style.fontSize = "20px";
+chartText.style.fontSize = "12px";
 chartText.style.fontWeight = "bold";
 chartText.style.color = "white";
 
