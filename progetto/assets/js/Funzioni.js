@@ -232,9 +232,9 @@ export function newAnswer(answerObj) {
         }
       });
 
-      if (!bottone.classList.contains("clicked")) {
+      /*if (!bottone.classList.contains("clicked")) {
         risposteSbagliate.push("null");
-      }
+      }*/
 
       if (answerObj.difficulty === "hard") {
         TIME_LIMIT = 60;
@@ -296,8 +296,9 @@ export function results(risposteCorrette, risposteSbagliate) {
     .then((res) => {
       let target = document.querySelector("#target");
       target.innerHTML = res;
-
-      let html = target.querySelector("#container1"); //ricevo oggetto html
+      let divOspite = document.createElement('div');//creo un elemento ospite
+      divOspite.innerHTML = res
+      let html = divOspite.querySelector("#container1"); //ricevo oggetto html
 
       //seleziono gli elementi
       let titleDOM = html.querySelector(".title2");
@@ -323,6 +324,7 @@ let wrongPercentage = (rSbagliate.length / questions.length) * 100;
       wrongDOM.textContent = "Wrong";
       correctPercentageDOM.textContent = `${correctPercentage}%`;
 wrongPercentageDOM.textContent = `${wrongPercentage}%`;
+
 
       const ctx = chartDOM.getContext("2d");
       const myChart = new Chart(ctx, {
